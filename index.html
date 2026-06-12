@@ -333,7 +333,8 @@
   .files a.drive-link::before { content: "📁"; }
 
   /* ─── STUDENTS ─── */
-  .stu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.3rem; }
+  .stu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.3rem; align-items: start; }
+  .stu-card p + p { margin-top: .7rem; }
   .stu-card { background: var(--bg-warm); border-radius: 14px; padding: 1.5rem; }
   .stu-card h3 { font-family: var(--serif); font-size: 1.05rem; margin-bottom: .6rem; }
   .stu-card p, .stu-card li { font-size: .85rem; color: var(--text-mid); }
@@ -471,7 +472,7 @@
     <div class="eyebrow"><span class="tr">Hakkımda</span><span class="en">About</span></div>
     <h2 class="tr">Akademisyen, araştırmacı, terapist</h2>
     <h2 class="en">Academic, researcher, therapist</h2>
-    <div class="about-grid">
+    <div class="about-grid" style="grid-template-columns:1fr; max-width:52rem;">
       <div class="about-text">
         <p class="tr">Mersin Üniversitesi Eğitim Fakültesi Rehberlik ve Psikolojik Danışmanlık Anabilim Dalı'nda <strong>Dr. Öğr. Üyesi</strong> olarak görev yapıyorum. Lisans ve lisansüstü düzeyde Psikopatoloji, Grupla Psikolojik Danışma, Yakın İlişkiler Psikolojisi, Kişilik Kuramları, Bireyle Psikolojik Danışma Uygulamaları ve Eğitim Psikolojisi gibi dersleri yürütüyorum. Akademik formasyonum sistemik ve aile temelli yaklaşımlar üzerine kuruludur; bir bireyi anlamanın, onu içinde bulunduğu ilişkiler ağıyla birlikte ele almaktan geçtiğine inanıyorum.</p>
         <p class="tr">Araştırmalarım romantik ilişkiler, toksik ilişki dinamikleri, evlilik ve boşanma süreçleri, evlilik doyumu ile sosyal medya kullanımının ilişkiler ve duygu düzenleme üzerindeki etkileri çevresinde şekilleniyor. Toksik İlişki Davranışları, Boşanma Kaygısı ve Algılanan Aile Sınırları gibi alanlarda ölçme araçları geliştirip Türkçeye kazandırdım. Kuramsal çerçevemi bağlanma kuramı, kabul ve kararlılık terapisi (ACT) ve sistemik aile yaklaşımlarının kesişiminde konumlandırıyorum.</p>
@@ -479,15 +480,6 @@
         <p class="en">I serve as an <strong>Assistant Professor</strong> in the Department of Guidance and Psychological Counseling at Mersin University's Faculty of Education, teaching courses such as Psychopathology, Group Counseling, Psychology of Close Relationships, Personality Theories, Individual Counseling Practicum, and Educational Psychology at undergraduate and graduate levels. My academic training is grounded in systemic and family-based approaches; I believe that understanding a person means considering them together with the web of relationships they inhabit.</p>
         <p class="en">My research centers on romantic relationships, toxic relationship dynamics, marriage and divorce processes, marital satisfaction, and the effects of social media use on relationships and emotion regulation. I have developed and adapted psychometric instruments in areas including toxic relationship behaviors, divorce anxiety, and perceived family boundaries. I position my theoretical framework at the intersection of attachment theory, Acceptance and Commitment Therapy (ACT), and systemic family approaches.</p>
         <p class="en">Alongside my academic work, I practice as a systemically oriented therapist working with adults. I provide support on a wide range of concerns — primarily romantic relationship and family difficulties, as well as anxiety, depressive symptoms, and challenges related to life transitions. A systemic perspective allows me to see a client's difficulty not merely as an individual symptom, but as part of the relational patterns they are embedded in.</p>
-      </div>
-      <div class="focus-card">
-        <h3 class="tr">Güncel Çalışmalar</h3>
-        <h3 class="en">Current Work</h3>
-        <ul>
-          <li><span class="tr">Kompulsif Kaydırma Ölçeği (KKÖ) geliştirme çalışması</span><span class="en">Development of the Compulsive Scrolling Scale</span></li>
-          <li><span class="tr">Günlük stresörler ve psikiyatrik örneklem çalışması (BDSST)</span><span class="en">Daily stressors in a psychiatric outpatient sample (BDSST)</span></li>
-          <li><span class="tr">Toksik ilişki davranışları ve psikolojik iyi oluş: düzenleyici aracılık modelleri</span><span class="en">Toxic relationship behaviors and well-being: moderated mediation models</span></li>
-        </ul>
       </div>
     </div>
   </div>
@@ -722,6 +714,19 @@
           </div>
         </article>
 
+      </div>
+    </div>
+
+    <div style="margin-top:3.5rem;">
+      <div class="eyebrow"><span class="tr">Güncel Çalışmalar</span><span class="en">Current Work</span></div>
+      <div class="focus-card" style="max-width:52rem;">
+        <h3 class="tr">Devam eden projeler</h3>
+        <h3 class="en">Ongoing projects</h3>
+        <ul>
+          <li><span class="tr">Kompulsif Kaydırma Ölçeği (KKÖ) geliştirme çalışması</span><span class="en">Development of the Compulsive Scrolling Scale</span></li>
+          <li><span class="tr">Günlük stresörler ve psikiyatrik örneklem çalışması (BDSST)</span><span class="en">Daily stressors in a psychiatric outpatient sample (BDSST)</span></li>
+          <li><span class="tr">Toksik ilişki davranışları ve psikolojik iyi oluş: düzenleyici aracılık modelleri</span><span class="en">Toxic relationship behaviors and well-being: moderated mediation models</span></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1126,31 +1131,76 @@
 <section class="page" id="ogrenciler">
   <div class="wrap">
     <div class="eyebrow"><span class="tr">Öğrenciler İçin</span><span class="en">For Students</span></div>
-    <h2 class="tr">Danışmanlık &amp; görüşme</h2>
-    <h2 class="en">Supervision &amp; office hours</h2>
+    <h2 class="tr">Kaynaklar &amp; iletişim</h2>
+    <h2 class="en">Resources &amp; contact</h2>
     <div class="stu-grid">
+
       <div class="stu-card">
-        <h3 class="tr">Tez Danışmanlığı</h3>
-        <h3 class="en">Thesis Supervision</h3>
-        <p class="tr">Tezli ve tezsiz yüksek lisans öğrencilerine danışmanlık veriyorum. Aşağıdaki alanlarda tez önerilerinizi memnuniyetle değerlendiririm:</p>
-        <p class="en">I supervise students in thesis and non-thesis master's programs. I welcome proposals in the following areas:</p>
-        <ul>
-          <li><span class="tr">Romantik ilişkiler ve ilişki doyumu</span><span class="en">Romantic relationships and relationship satisfaction</span></li>
-          <li><span class="tr">Sosyal medya kullanımı, FOMO, kompulsif kaydırma</span><span class="en">Social media use, FOMO, compulsive scrolling</span></li>
-          <li><span class="tr">Ölçek geliştirme ve uyarlama</span><span class="en">Scale development and adaptation</span></li>
-          <li><span class="tr">ACT ve kabul temelli müdahaleler</span><span class="en">ACT and acceptance-based interventions</span></li>
-        </ul>
-      </div>
-      <div class="stu-card">
-        <h3 class="tr">Görüşme Saatleri</h3>
+        <h3 class="tr">Ofis Saatleri</h3>
         <h3 class="en">Office Hours</h3>
-        <p class="tr">Görüşme saatleri her dönem güncellenir. Randevu için e-posta atmanız yeterlidir; ders dosyaları ve şifrelerle ilgili sorular için de bana ulaşabilirsiniz.</p>
-        <p class="en">Office hours are updated each semester. Please email me for an appointment; you may also contact me about course files and passcodes.</p>
+        <p class="tr">Görüşme saatlerim her dönem güncellenir. Bu saatlerde ofisime randevusuz uğrayabilirsiniz; yoğunluk durumunda önceden e-posta ile haber vermeniz önerilir.</p>
+        <p class="en">My office hours are updated each semester. You may drop by during these hours without an appointment; emailing ahead is recommended during busy periods.</p>
         <ul>
-          <li><span class="tr">Ofis: Eğitim Fakültesi, C Blok, 2. Kat</span><span class="en">Office: Faculty of Education, Block C, 2nd Floor</span></li>
-          <li>aliammarkurt@mersin.edu.tr</li>
+          <li><span class="tr">[Gün] · [Saat aralığı]</span><span class="en">[Day] · [Time range]</span></li>
+          <li><span class="tr">[Gün] · [Saat aralığı]</span><span class="en">[Day] · [Time range]</span></li>
         </ul>
       </div>
+
+      <div class="stu-card">
+        <h3 class="tr">İletişim &amp; Randevu</h3>
+        <h3 class="en">Contact &amp; Appointments</h3>
+        <p class="tr">Ofis saatleri dışında görüşmek için e-posta ile randevu talep edebilirsiniz. E-postanızda adınızı, dersinizi/programınızı ve görüşme konusunu kısaca belirtmeniz süreci hızlandırır.</p>
+        <p class="en">For meetings outside office hours, request an appointment by email. Including your name, course/program, and a brief note on the topic speeds things up.</p>
+        <ul>
+          <li>aliammarkurt@mersin.edu.tr</li>
+          <li><span class="tr">Eğitim Fakültesi, C Blok, 2. Kat</span><span class="en">Faculty of Education, Block C, 2nd Floor</span></li>
+        </ul>
+      </div>
+
+      <div class="stu-card">
+        <h3 class="tr">Sık Sorulan Sorular</h3>
+        <h3 class="en">Frequently Asked Questions</h3>
+        <p class="tr"><strong>Ders dosyası şifremi unuttum / bilmiyorum.</strong><br>Şifre her dönem ilgili derste duyurulur. Dersi alıyorsanız e-posta ile ulaşabilirsiniz.</p>
+        <p class="tr"><strong>Mazeret sınavına nasıl girebilirim?</strong><br>Üniversitenin ilgili yönetmeliği geçerlidir; mazeretinizi belgeyle birlikte zamanında iletmeniz gerekir.</p>
+        <p class="tr"><strong>Referans mektubu rica edebilir miyim?</strong><br>Aşağıdaki "Referans Mektubu Talebi" başlığına bakınız.</p>
+        <p class="en"><strong>I forgot / don't know the course file passcode.</strong><br>The passcode is announced each semester in the relevant class. If you are enrolled, email me.</p>
+        <p class="en"><strong>How do I take a make-up exam?</strong><br>The university's regulations apply; submit your excuse with documentation on time.</p>
+        <p class="en"><strong>Can I request a reference letter?</strong><br>Please see the "Reference Letter Requests" section below.</p>
+      </div>
+
+      <div class="stu-card">
+        <h3 class="tr">Referans / Tavsiye Mektubu Talebi</h3>
+        <h3 class="en">Reference Letter Requests</h3>
+        <p class="tr">Sizi tanıdığım ve değerlendirebileceğim durumlarda memnuniyetle referans mektubu yazarım. Talebinizi iletirken lütfen şunlara dikkat edin:</p>
+        <p class="en">I am glad to write reference letters when I know you well enough to evaluate you fairly. When requesting, please note:</p>
+        <ul>
+          <li><span class="tr">En az 2–3 hafta önceden başvurun</span><span class="en">Ask at least 2–3 weeks in advance</span></li>
+          <li><span class="tr">CV'nizi ve başvuru detaylarını (program, son tarih) ekleyin</span><span class="en">Include your CV and application details (program, deadline)</span></li>
+          <li><span class="tr">Birlikte aldığımız ders(ler)i ve notunuzu belirtin</span><span class="en">Mention the course(s) we shared and your grade</span></li>
+        </ul>
+      </div>
+
+      <div class="stu-card">
+        <h3 class="tr">Önerilen Kaynaklar</h3>
+        <h3 class="en">Recommended Resources</h3>
+        <p class="tr">İlgi alanlarınıza göre okuma ve kaynak önerileri zaman zaman burada paylaşılacaktır. Belirli bir konuda kaynak önerisi isterseniz çekinmeden sorabilirsiniz.</p>
+        <p class="en">Reading and resource recommendations will be shared here from time to time. Feel free to ask if you'd like suggestions on a specific topic.</p>
+        <ul>
+          <li><span class="tr">[Okuma listesi / bağlantı eklenecek]</span><span class="en">[Reading list / link to be added]</span></li>
+        </ul>
+      </div>
+
+      <div class="stu-card">
+        <h3 class="tr">Destek Kaynakları</h3>
+        <h3 class="en">Support Resources</h3>
+        <p class="tr">Zorlandığınız bir dönemden geçiyorsanız yalnız değilsiniz. Aşağıdaki birimlere başvurabilir, dilerseniz benimle de iletişime geçebilirsiniz.</p>
+        <p class="en">If you are going through a difficult time, you are not alone. You can reach out to the units below, or contact me if you wish.</p>
+        <ul>
+          <li><span class="tr">Mersin Üniversitesi Psikolojik Danışma Birimi — [iletişim eklenecek]</span><span class="en">Mersin University Psychological Counseling Unit — [contact to be added]</span></li>
+          <li><span class="tr">Acil durumlarda: 112</span><span class="en">In emergencies: 112</span></li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>
