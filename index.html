@@ -325,6 +325,12 @@
   }
   .files a:hover { color: var(--accent); }
   .files a::before { content: "↗"; color: var(--accent); font-size: .8rem; }
+  .files a.drive-link {
+    background: var(--ok); color: #fff; padding: .7rem 1.1rem; border-radius: 8px;
+    font-weight: 500; justify-content: center; margin-top: .3rem;
+  }
+  .files a.drive-link:hover { background: #3d6b4a; color: #fff; }
+  .files a.drive-link::before { content: "📁"; }
 
   /* ─── STUDENTS ─── */
   .stu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.3rem; }
@@ -1178,10 +1184,7 @@
    linkler çözülemez.
    ════════════════════════════════════════════════════════════════ */
 const COURSE_VAULT = {
-  "psikopatoloji": "TnieUWg+jWIx9aIjKDtM8w==.8cU4luuEg3sLq7Ke.R1pNigJcEd4qdZbwXKi7QG07wxcTXF9NzeXS5NHZ1UdSgl4B+wvIL+loS5whmhLON0DswpayIIqwXD8a6EJ4xv6rBsKeMgqnewAP5OVL9XezG3Kpvpeqx/omFxLHgI4mVBz/B6E7cHsk2nto/DbApiX0qUi1fkhejFpeU+xQ467uFeER9Avh/FEH5wyXREQQl5x+SQY9HLc+lCynz4fjIpe9119CRHBt5u0l2XHIL7OB22ifwz1ZQzGCDBGVu2BZygDm5CB9dI64tSvrY0aI3VtmjJdYba3JATHOEWhgKpi5VlgIBwkeZ6bhS9UdDSRFJZTPP4rcj2KgqeSmKoUqkZ4LRwsC0sOx3lvEgMND1YiJL3QH4AgLEy3ptn3576UXU96+D1Imm2ovCcwyGGl+l6jnFkSiHnIUFMzUM1ktNhQkzoJz6j4eFSnMtHSLCZCDxeBdq9NGvlIuI6/A/clLMEpDtSz48+0SY4rTe1hOi7s=",
-  "grup": "wGmKJL6y/tFwRuYHbw0VaQ==.frRfCpxB57ZCJt/V.yyM0lOT0qCgNxRR4vhUkA/XuRC5i8aXFAdNgYgsV5NmEy/Thi1UaEIUFcQq7g65r5n6kPEh6kAeuHUiZFlD4WvjIwsHfctZZSCUXXQqWBERMyZ/X1CK7vX8j28ugeX22Brx7gamwu5cVNAKzipngHJWUuwmOrsdeZ7JZAaM8cGP18MFCTiDMaN4z/fajnT4yQ9bGEVqHt2ckbbjHbusCbfFnsrVz2fK2e9nwiyDtcd79b+c6PagNN691i3oxfurPKhGYSr+aFBN+Z3Gjw0S6qtuDqdKFW4VPKUaQOch0rbQaHFu0WWVv8L36L4vM8nNrub3AANmYodJCx2VH+Ymlf+jIuowY6Q2ssxK+FnBG6Gx5ZGxh9hPVd3lW4m1IdXkT9gTvlCYIw80ICMXmU+ORxVeqhBNuVzPOmNEkAcKv7HG0zzT2pkPezymp7RCBcO2n8Qmbe5WbsDbxGgvfsTCbxLMhIcvtcVI=",
-  "yakin-iliskiler": "j7ehv0cfIHlnyobeW/Xqtg==.duCrUHfO5laCDmIq.qDxrA4mzk7sobOlMrbAtc5rqL1TePjVmceqJ7s8P9iGN5seegodCKmFOwaMkF7w11ZybiSDIVYjQE+2jr5DT2vCLSn3Yrs3BmQDwAXO3StpdN/i9TwwzQqUzhqaCmSp1ksQe6CUG3XQOF6TP6iaNL1BW7n9rgOx7jx5JBeIR2V9oWABCy71wpQUoM2qSZ3W5yLg6ykZU3PQyRNygmaPOMbfz9t19QP6lSnPw1L5bt/s/EQiumesQ5zehsQbbhlkMghXbFvxF/ysrFOFsrfLQAdF2g0ATxZvkhvDwf8zw8MPpp/u0Y00eQ3V0dkFbaXjuPfKhka0ssE/sbOB+QleJ3Kl9SXYDHpSHhv2+JLd+rrXMa7YKNGhoiS/Q9RixJBpwjVlfD4geL+dyTexUi4y+fVkjdzgEcC/ZBc5vLFuVq0KZTZyMiJg7TnL4+FNxGvF5ohjqv6A4wnd3tyMCuptgq9+OCcqRIIM+2UyDHMOJM+YNHQ==",
-  "egitim-psikolojisi": "zJuVe0UnsGxN+Fo4H3OM0w==.ZNGwyCGq1pWTI2nD.7+xi2jStCUokanxA5zcyhkl5D4Nw5WbFtQiG0uudxoVrn5XmdQuUHEsSBTSGBdzTu7AJ7YzfAx61lfKZyr96El17DVuiILyKn1RAliUG81QE5ZR1sZne75wlFfaJWens0hTJeLl2crueaurXkD+HMacKt2ZiOj4IwH5oJ/8UlQuUV2rQdIYGRwQoWuWhwx/hD2bg0N3fDulxpBroo0I+fqZIuv7WW2xgEw/QDqIql9T/uY1XUSjQclfaCnPSX84iX+BxXqOePmXYclBleD2W+TutEKrfIQZ02toii/wdomt0MfsvMZx2xw1AH/WXMfpGhB0PagvmM63i58ZKVYecEBFkMEqUrm2f79o5Hobf8JwyHfriUv1iP2FOSyUO6ZPLYBNVODhEQwQxwXEINCW0ZeE5gqW59H2YYI7j/QIz5lkIYzPhAQh9q3AltcF2EpG8oSa10HsD/cOF2BO4lzEdFXEYub7Ed+t2jmqC0zgx7QuEkzMnPg=="
+  "yakin-iliskiler": "HgTd2bknDASWkWKJNJFzQw==.PzDCUdRPXIeXzAqI.jTNaSk+xO/cRt/OoIZstFuLiWS6YDCkts7HQU+k3dAZItmbL9VSEsjnLI/eslPTWvLHp4WirdfiTwpjSlhlpEke+QJ5YGCWwWmgxP90WNbOqfwXgG4AkkqP3jxRaKkO28dpeZxWQcHaLKROiTms="
 };
 
 /* ─── Language toggle ─── */
@@ -1235,19 +1238,32 @@ async function unlock(btn) {
   const input = course.querySelector('.gate input');
   const msg = course.querySelector('.gate-msg');
   const pw = input.value.trim();
+  const tr = document.body.dataset.lang === 'tr';
   if (!pw) return;
   msg.textContent = '';
   msg.classList.remove('err');
+  if (!COURSE_VAULT[id]) {
+    msg.textContent = tr ? 'Bu ders için henüz dosya eklenmemiş.' : 'No files have been added for this course yet.';
+    msg.classList.add('err');
+    return;
+  }
   btn.disabled = true;
   try {
-    const files = await decryptVault(COURSE_VAULT[id], pw);
+    const data = await decryptVault(COURSE_VAULT[id], pw);
     const ul = course.querySelector('.files');
-    ul.innerHTML = files.map(f =>
-      `<li><a href="${f.url}" target="_blank" rel="noopener">${f.name}</a></li>`
-    ).join('');
+    if (Array.isArray(data)) {
+      ul.innerHTML = data.map(f =>
+        `<li><a href="${f.url}" target="_blank" rel="noopener">${f.name}</a></li>`
+      ).join('');
+    } else if (data && data.url) {
+      ul.innerHTML =
+        `<li><a class="drive-link" href="${data.url}" target="_blank" rel="noopener">`
+        + (tr ? 'Ders dosyalarını aç (Google Drive)' : 'Open course files (Google Drive)')
+        + `</a></li>`;
+      window.open(data.url, '_blank', 'noopener');
+    }
     course.classList.add('unlocked');
   } catch (e) {
-    const tr = document.body.dataset.lang === 'tr';
     msg.textContent = tr ? 'Şifre hatalı. Lütfen tekrar deneyin.' : 'Incorrect passcode. Please try again.';
     msg.classList.add('err');
   } finally {
