@@ -166,6 +166,47 @@
 
   /* ─── TOOLS (signature cards) ─── */
   .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.3rem; }
+
+  /* ─── SCALE USAGE NOTICE ─── */
+  .usage-notice {
+    background: var(--bg-warm); border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent); border-radius: 12px;
+    padding: 1.3rem 1.5rem; margin-bottom: 2.2rem; max-width: 52rem;
+  }
+  .usage-notice h3 {
+    font-family: var(--serif); font-size: 1rem; margin-bottom: .5rem;
+  }
+  .usage-notice p { font-size: .86rem; color: var(--text-mid); margin: 0; }
+
+  /* ─── SCALE DOWNLOAD + CITATION ─── */
+  .scale-actions { display: flex; flex-direction: column; gap: .55rem; }
+  .btn-download {
+    display: flex; align-items: center; justify-content: center; gap: .5rem;
+    font-size: .78rem; font-weight: 500; text-decoration: none;
+    padding: .55rem 1rem; border-radius: 8px;
+    background: var(--accent); color: #fff; transition: background .2s;
+  }
+  .btn-download:hover { background: var(--accent-hover); }
+  .btn-download::before { content: "↓"; font-size: .9rem; }
+  .cite-box {
+    background: var(--bg-warm); border: 1px solid var(--rule);
+    border-radius: 8px; padding: .65rem .8rem; position: relative;
+  }
+  .cite-box .cite-label {
+    font-family: var(--mono); font-size: .6rem; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--text-light); display: block; margin-bottom: .3rem;
+  }
+  .cite-box .cite-text {
+    font-size: .72rem; color: var(--text-mid); line-height: 1.5; padding-right: 2rem;
+  }
+  .cite-copy {
+    position: absolute; top: .55rem; right: .55rem;
+    border: 1px solid var(--rule); background: var(--card); cursor: pointer;
+    border-radius: 6px; padding: .25rem .45rem; font-size: .68rem;
+    color: var(--text-mid); font-family: var(--sans); transition: all .2s;
+  }
+  .cite-copy:hover { border-color: var(--accent); color: var(--accent); }
+  .cite-copy.copied { background: var(--ok); color: #fff; border-color: var(--ok); }
   .tool-card {
     background: var(--card); border: 1px solid var(--rule); border-radius: 14px;
     padding: 1.6rem; display: flex; flex-direction: column; gap: .9rem;
@@ -660,49 +701,69 @@
     <div class="eyebrow"><span class="tr">Ölçme Araçları</span><span class="en">Assessment Instruments</span></div>
     <h2 class="tr">Geliştirdiğim &amp; uyarladığım ölçekler</h2>
     <h2 class="en">Instruments I developed &amp; adapted</h2>
+
+    <div class="usage-notice">
+      <h3 class="tr">Ölçek Kullanımı Hakkında</h3>
+      <h3 class="en">About Using These Scales</h3>
+      <p class="tr">Bu sayfada paylaşılan ölçme araçları, akademik ve bilimsel araştırma amacıyla ayrıca izin alınmaksızın kullanılabilir. Kullanım için tek koşul, ilgili ölçeğin künyesine uygun biçimde <strong>atıf yapılması</strong>dır. Ölçeklerin ticari amaçla kullanımı, değiştirilmesi veya yeniden dağıtımı için lütfen önceden iletişime geçiniz. Tüm kullanımların, ilgili etik kurul onayları ve araştırma etiği ilkeleri çerçevesinde yürütülmesi beklenir.</p>
+      <p class="en">The instruments shared on this page may be used for academic and scientific research without requesting further permission. The only condition is <strong>appropriate citation</strong> of the relevant scale. For commercial use, modification, or redistribution, please get in touch beforehand. All use is expected to be carried out within the framework of the relevant ethics committee approvals and research ethics principles.</p>
+    </div>
+
     <div class="tools-grid">
       <div class="tool-card">
         <div class="tool-abbr">TİDÖ</div>
         <h3 class="tr">Toksik İlişki Davranışları Ölçeği</h3>
         <h3 class="en">Toxic Relationship Behaviors Scale</h3>
-        <p class="tr">Romantik ilişkilerde toksik davranış örüntülerini değerlendiren özgün ölçme aracı. Araştırma amaçlı kullanım için serbesttir; kaynak gösterilmesi yeterlidir.</p>
-        <p class="en">An original instrument assessing toxic behavior patterns in romantic relationships. Free for research use with appropriate citation.</p>
-        <div class="tool-specs">
-          <div><strong>[n]</strong><span class="tr">madde</span><span class="en">items</span></div>
-          <div><strong>[n]</strong><span class="tr">boyut</span><span class="en">factors</span></div>
-          <div><strong>.[xx]</strong>α</div>
-        </div>
+        <p class="tr">Romantik ilişkilerde toksik davranış örüntülerini değerlendiren ölçme aracının Türkçe uyarlaması.</p>
+        <p class="en">Turkish adaptation of an instrument assessing toxic behavior patterns in romantic relationships.</p>
         <div class="tool-cite">Kurt &amp; Gündüz (2025)</div>
-        <a class="pill pill-line" href="https://doi.org/10.9779/pauefd.1566355" target="_blank" rel="noopener" style="text-align:center;"><span class="tr">Makaleye Git (DOI)</span><span class="en">View Article (DOI)</span></a>
+        <div class="scale-actions">
+          <a class="btn-download" href="tido-olcek.pdf" target="_blank" rel="noopener"><span class="tr">Ölçeği İndir (PDF)</span><span class="en">Download Scale (PDF)</span></a>
+          <a class="pill pill-line" href="https://doi.org/10.9779/pauefd.1566355" target="_blank" rel="noopener" style="text-align:center;"><span class="tr">Makaleye Git (DOI)</span><span class="en">View Article (DOI)</span></a>
+          <div class="cite-box">
+            <span class="cite-label tr">Atıf</span><span class="cite-label en">Cite as</span>
+            <span class="cite-text" id="cite-tido">Kurt, A. A., &amp; Gündüz, B. (2025). İlişkilerin yıkıcı yüzü toksiklik: Toksik İlişki Davranışları Ölçeği'nin Türkçeye uyarlama çalışması. Pamukkale Üniversitesi Eğitim Fakültesi Dergisi, (65), 321–333.</span>
+            <button class="cite-copy" data-cite="cite-tido"><span class="tr">Kopyala</span><span class="en">Copy</span></button>
+          </div>
+        </div>
       </div>
+
       <div class="tool-card">
         <div class="tool-abbr">BKÖ / DAS</div>
         <h3 class="tr">Boşanma Kaygısı Ölçeği</h3>
         <h3 class="en">Divorce Anxiety Scale</h3>
-        <p class="tr">Evli bireylerde boşanmaya ilişkin kaygıyı ölçen özgün araç. Araştırma amaçlı kullanım için serbesttir; kaynak gösterilmesi yeterlidir.</p>
-        <p class="en">An original instrument measuring divorce-related anxiety in married individuals. Free for research use with appropriate citation.</p>
-        <div class="tool-specs">
-          <div><strong>[n]</strong><span class="tr">madde</span><span class="en">items</span></div>
-          <div><strong>[n]</strong><span class="tr">boyut</span><span class="en">factors</span></div>
-          <div><strong>.[xx]</strong>α</div>
-        </div>
+        <p class="tr">Evli bireylerde boşanmaya ilişkin kaygıyı ölçen özgün araç.</p>
+        <p class="en">An original instrument measuring divorce-related anxiety in married individuals.</p>
         <div class="tool-cite">Kurt &amp; Gündüz (2025)</div>
-        <a class="pill pill-line" href="https://doi.org/10.14812/cuefd.1623439" target="_blank" rel="noopener" style="text-align:center;"><span class="tr">Makaleye Git (DOI)</span><span class="en">View Article (DOI)</span></a>
+        <div class="scale-actions">
+          <a class="btn-download" href="bko-olcek.pdf" target="_blank" rel="noopener"><span class="tr">Ölçeği İndir (PDF)</span><span class="en">Download Scale (PDF)</span></a>
+          <a class="pill pill-line" href="https://doi.org/10.14812/cuefd.1623439" target="_blank" rel="noopener" style="text-align:center;"><span class="tr">Makaleye Git (DOI)</span><span class="en">View Article (DOI)</span></a>
+          <div class="cite-box">
+            <span class="cite-label tr">Atıf</span><span class="cite-label en">Cite as</span>
+            <span class="cite-text" id="cite-bko">Kurt, A. A., &amp; Gündüz, B. (2025). The development of the Divorce Anxiety Scale. Çukurova Üniversitesi Eğitim Fakültesi Dergisi, 54(3), 1144–1165.</span>
+            <button class="cite-copy" data-cite="cite-bko"><span class="tr">Kopyala</span><span class="en">Copy</span></button>
+          </div>
+        </div>
       </div>
+
       <div class="tool-card">
         <div class="tool-abbr">AASÖ</div>
         <h3 class="tr">Genç Yetişkinlerde Algılanan Aile Sınırları Ölçeği</h3>
         <h3 class="en">Perceived Family Boundaries in Young Adults Scale</h3>
-        <p class="tr">Genç yetişkinlerin ailelerindeki sınır algısını değerlendiren özgün ölçme aracı. Araştırma amaçlı kullanım için serbesttir; kaynak gösterilmesi yeterlidir.</p>
-        <p class="en">An original instrument assessing young adults' perception of boundaries within their families. Free for research use with appropriate citation.</p>
-        <div class="tool-specs">
-          <div><strong>[n]</strong><span class="tr">madde</span><span class="en">items</span></div>
-          <div><strong>[n]</strong><span class="tr">boyut</span><span class="en">factors</span></div>
-          <div><strong>.[xx]</strong>α</div>
-        </div>
+        <p class="tr">Genç yetişkinlerin ailelerindeki sınır algısını değerlendiren özgün ölçme aracı.</p>
+        <p class="en">An original instrument assessing young adults' perception of boundaries within their families.</p>
         <div class="tool-cite">Kurt &amp; Uzun (2023)</div>
-        <a class="pill pill-line" href="https://doi.org/10.17066/tpdrd.1297253" target="_blank" rel="noopener" style="text-align:center;"><span class="tr">Makaleye Git (DOI)</span><span class="en">View Article (DOI)</span></a>
+        <div class="scale-actions">
+          <a class="btn-download" href="aaso-olcek.pdf" target="_blank" rel="noopener"><span class="tr">Ölçeği İndir (PDF)</span><span class="en">Download Scale (PDF)</span></a>
+          <a class="pill pill-line" href="https://dergipark.org.tr/en/pub/tpdrd/article/1297253" target="_blank" rel="noopener" style="text-align:center;"><span class="tr">Makaleye Git (DOI)</span><span class="en">View Article (DOI)</span></a>
+          <div class="cite-box">
+            <span class="cite-label tr">Atıf</span><span class="cite-label en">Cite as</span>
+            <span class="cite-text" id="cite-aaso">Kurt, A. A., &amp; Uzun, N. B. (2023). Development of Perceived Family Boundaries in Young Adults Scale. Turkish Psychological Counseling and Guidance Journal, 13(69), 160–169.</span>
+            <button class="cite-copy" data-cite="cite-aaso"><span class="tr">Kopyala</span><span class="en">Copy</span></button>
+          </div>
+        </div>
       </div>
+
       <div class="tool-card">
         <span class="badge-dev tr">Geliştirme aşamasında</span><span class="badge-dev en">In development</span>
         <div class="tool-abbr">KKÖ</div>
@@ -710,11 +771,8 @@
         <h3 class="en">Compulsive Scrolling Scale</h3>
         <p class="tr">Sosyal medyada kompulsif kaydırma davranışını ölçmeyi amaçlayan, geliştirme süreci devam eden ölçek çalışması. Yayınlandığında burada paylaşılacaktır.</p>
         <p class="en">A scale under development measuring compulsive scrolling behavior on social media. It will be shared here upon publication.</p>
-        <div class="tool-specs">
-          <div><strong>60</strong><span class="tr">madde havuzu</span><span class="en">item pool</span></div>
-          <div><strong>EFA</strong><span class="tr">aşaması</span><span class="en">stage</span></div>
-        </div>
-        <div class="tool-cite">Kurt (—)</div>
+        <div class="tool-cite tr">Hazırlanıyor</div>
+        <div class="tool-cite en">In preparation</div>
       </div>
     </div>
   </div>
@@ -978,6 +1036,20 @@ menuBtn.addEventListener('click', () => {
   const nav = document.getElementById('navLinks');
   const open = nav.classList.toggle('open');
   menuBtn.setAttribute('aria-expanded', open);
+});
+
+/* ─── CITATION COPY ─── */
+document.querySelectorAll('.cite-copy').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const text = document.getElementById(btn.dataset.cite).textContent.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const tr = document.body.dataset.lang === 'tr';
+      const orig = btn.innerHTML;
+      btn.classList.add('copied');
+      btn.textContent = tr ? 'Kopyalandı ✓' : 'Copied ✓';
+      setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = orig; }, 1800);
+    });
+  });
 });
 </script>
 </body>
