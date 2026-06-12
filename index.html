@@ -447,6 +447,7 @@
       <li><a href="#olcekler"><span class="tr">Ölçme Araçları</span><span class="en">Instruments</span></a></li>
       <li><a href="#dersler"><span class="tr">Dersler</span><span class="en">Courses</span></a></li>
       <li><a href="#ogrenciler"><span class="tr">Öğrenciler</span><span class="en">Students</span></a></li>
+      <li><a href="#yazilar"><span class="tr">Yazılar</span><span class="en">Writing</span></a></li>
     </ul>
     <div style="display:flex; align-items:center; gap:.7rem;">
       <button class="menu-btn" id="menuBtn" aria-label="Menü" aria-expanded="false">☰</button>
@@ -511,6 +512,8 @@
           <a class="pill pill-solid" href="ali-ammar-kurt-cv-tr.pdf" target="_blank" rel="noopener"><span class="tr">CV (Türkçe, PDF)</span><span class="en">CV (Turkish, PDF)</span></a>
           <a class="pill pill-line" href="ali-ammar-kurt-cv-en.pdf" target="_blank" rel="noopener"><span class="tr">CV (İngilizce, PDF)</span><span class="en">CV (English, PDF)</span></a>
         </div>
+        <p class="tr" style="margin-top:1.6rem; font-size:.9rem; color:var(--text-mid);"><strong style="color:var(--text);">İletişim:</strong> Sorularınız ve iş birliği talepleriniz için <a href="mailto:aliammarkurt@mersin.edu.tr" style="color:var(--accent); text-decoration:none;">aliammarkurt@mersin.edu.tr</a> adresinden ulaşabilirsiniz. Ofisim: Mersin Üniversitesi Eğitim Fakültesi, C Blok, 2. Kat.</p>
+        <p class="en" style="margin-top:1.6rem; font-size:.9rem; color:var(--text-mid);"><strong style="color:var(--text);">Contact:</strong> For questions and collaboration inquiries, you can reach me at <a href="mailto:aliammarkurt@mersin.edu.tr" style="color:var(--accent); text-decoration:none;">aliammarkurt@mersin.edu.tr</a>. Office: Mersin University Faculty of Education, Block C, 2nd Floor.</p>
       </div>
     </div>
   </div>
@@ -1273,6 +1276,24 @@
   </div>
 </section>
 
+<!-- ─── WRITING / BLOG ─── -->
+<section class="page" id="yazilar">
+  <div class="wrap">
+    <div class="eyebrow"><span class="tr">Yazılar</span><span class="en">Writing</span></div>
+    <h2 class="tr">Yazılar &amp; düşünceler</h2>
+    <h2 class="en">Writing &amp; reflections</h2>
+    <p class="tr" style="color:var(--text-mid); max-width:42rem; margin-bottom:2rem;">Yakın ilişkiler, sistemik bakış açısı, sosyal medya psikolojisi ve ruh sağlığı üzerine zaman zaman kaleme alacağım yazıları burada paylaşacağım.</p>
+    <p class="en" style="color:var(--text-mid); max-width:42rem; margin-bottom:2rem;">From time to time I will share here my writing on close relationships, the systemic perspective, the psychology of social media, and mental health.</p>
+
+    <div class="focus-card" style="max-width:42rem; text-align:center; padding:2.6rem 1.6rem;">
+      <h3 class="tr" style="margin-bottom:.5rem;">İçerik hazırlanıyor…</h3>
+      <h3 class="en" style="margin-bottom:.5rem;">Content in preparation…</h3>
+      <p class="tr" style="font-size:.88rem; color:var(--text-mid); margin:0;">İlk yazılar çok yakında burada olacak. Takipte kalın.</p>
+      <p class="en" style="font-size:.88rem; color:var(--text-mid); margin:0;">The first pieces will be here very soon. Stay tuned.</p>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -1397,7 +1418,7 @@ document.querySelectorAll('.gate input').forEach(inp => {
 });
 
 /* ─── PAGE ROUTER ─── */
-const PAGES = ['top', 'hakkimda', 'yayinlar', 'olcekler', 'dersler', 'ogrenciler'];
+const PAGES = ['top', 'hakkimda', 'yayinlar', 'olcekler', 'dersler', 'ogrenciler', 'yazilar'];
 function route() {
   const id = (location.hash || '#top').slice(1);
   const target = PAGES.includes(id) ? id : 'top';
