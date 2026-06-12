@@ -242,6 +242,32 @@
   }
 
   /* ─── COURSES ─── */
+  /* ─── SEMESTER GROUPS ─── */
+  .semester { margin-bottom: 1.4rem; }
+  .semester-head {
+    display: flex; align-items: center; gap: 1rem; cursor: pointer; user-select: none;
+    padding: .9rem 0; border-bottom: 2px solid var(--rule);
+  }
+  .semester-head h3 {
+    font-family: var(--serif); font-size: 1.25rem; flex-shrink: 0;
+  }
+  .semester-tag {
+    font-family: var(--mono); font-size: .62rem; letter-spacing: .08em;
+    text-transform: uppercase; padding: .2rem .55rem; border-radius: 999px;
+    background: var(--accent); color: #fff;
+  }
+  .semester-tag.past { background: transparent; color: var(--text-light); border: 1px solid var(--rule); }
+  .semester-spacer { flex: 1; }
+  .semester-chev {
+    color: var(--text-light); transition: transform .3s; flex-shrink: 0;
+  }
+  .semester.open .semester-chev { transform: rotate(180deg); }
+  .semester-body {
+    max-height: 0; overflow: hidden; transition: max-height .45s ease;
+  }
+  .semester.open .semester-body { max-height: 9000px; }
+  .semester-body .course-list { padding-top: 1.3rem; }
+
   .course-list { display: flex; flex-direction: column; gap: 1.1rem; }
   .course {
     background: var(--card); border: 1px solid var(--rule); border-radius: 14px;
@@ -806,83 +832,286 @@
     <p class="tr" style="color:var(--text-mid); max-width:40rem; margin-bottom:1.8rem;">Ders dosyalarına yalnızca ilgili dersi alan öğrenciler erişebilir. Dönem şifresi ilk derste duyurulur. Şifrenizi girerek sunumlara, izlenceye ve okuma listelerine ulaşabilirsiniz.</p>
     <p class="en" style="color:var(--text-mid); max-width:40rem; margin-bottom:1.8rem;">Course materials are accessible only to enrolled students. The semester passcode is announced in the first class. Enter your passcode to access slides, the syllabus, and reading lists.</p>
 
-    <div class="course-list">
-      <!-- Each data-course matches a key in COURSE_VAULT -->
-      <div class="course" data-course="psikopatoloji">
-        <div class="course-head" role="button" tabindex="0" aria-expanded="false">
-          <span class="course-code">PDR XXX</span>
-          <h3><span class="tr">Psikopatoloji</span><span class="en">Psychopathology</span></h3>
-          <span class="course-level tr">Lisans</span><span class="course-level en">Undergraduate</span>
-          <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+    <div class="course-list-wrap">
+
+      <!-- ═══ AKTİF DÖNEM ═══ -->
+      <div class="semester open">
+        <div class="semester-head" role="button" tabindex="0" aria-expanded="true">
+          <h3>2025–2026 <span class="tr">Bahar</span><span class="en">Spring</span></h3>
+          <span class="semester-tag tr">Aktif</span><span class="semester-tag en">Active</span>
+          <span class="semester-spacer"></span>
+          <svg class="semester-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </div>
-        <div class="course-body"><div class="course-inner">
-          <p class="course-desc tr">DSM-5 tanı sistemine giriş, temel psikopatoloji kategorileri ve vaka temelli tanısal değerlendirme.</p>
-          <p class="course-desc en">Introduction to the DSM-5 diagnostic system, major categories of psychopathology, and case-based diagnostic reasoning.</p>
-          <div class="gate">
-            <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
-            <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
-            <span class="gate-msg" aria-live="polite"></span>
+        <div class="semester-body">
+          <div class="course-list">
+
+            <div class="course" data-course="yakin-iliskiler">
+              <div class="course-head" role="button" tabindex="0" aria-expanded="false">
+                <span class="course-code">2770076</span>
+                <h3><span class="tr">Yakın İlişkiler Psikolojisi</span><span class="en">Psychology of Close Relationships</span></h3>
+                <span class="course-level tr">Lisans · Seçmeli</span><span class="course-level en">Undergraduate · Elective</span>
+                <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+              </div>
+              <div class="course-body"><div class="course-inner">
+                <p class="course-desc tr">Bağlanma, aşk kuramları, toksik ilişkiler, sosyal medya ve ilişkiler, toplumsal cinsiyet rolleri ve ilişki sonlanması.</p>
+                <p class="course-desc en">Attachment, theories of love, toxic relationships, social media and relationships, gender roles, and relationship dissolution.</p>
+                <div class="gate">
+                  <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
+                  <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
+                  <span class="gate-msg" aria-live="polite"></span>
+                </div>
+                <ul class="files"></ul>
+              </div></div>
+            </div>
+
+            <div class="course" data-course="kisilik-kuramlari">
+              <div class="course-head" role="button" tabindex="0" aria-expanded="false">
+                <span class="course-code">2774021</span>
+                <h3><span class="tr">Kişilik Kuramları</span><span class="en">Personality Theories</span></h3>
+                <span class="course-level tr">Lisans</span><span class="course-level en">Undergraduate</span>
+                <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+              </div>
+              <div class="course-body"><div class="course-inner">
+                <p class="course-desc tr">Psikanalitik yaklaşımdan hümanistik ve bilişsel-davranışçı kuramlara kişilik kuramlarının karşılaştırmalı incelenmesi.</p>
+                <p class="course-desc en">A comparative survey of personality theories, from psychoanalytic approaches to humanistic and cognitive-behavioral frameworks.</p>
+                <div class="gate">
+                  <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
+                  <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
+                  <span class="gate-msg" aria-live="polite"></span>
+                </div>
+                <ul class="files"></ul>
+              </div></div>
+            </div>
+
+            <div class="course" data-course="davranis-bozukluklari">
+              <div class="course-head" role="button" tabindex="0" aria-expanded="false">
+                <span class="course-code">2776030</span>
+                <h3><span class="tr">Davranış Bozuklukları / Psikopatoloji II</span><span class="en">Behavioral Disorders / Psychopathology II</span></h3>
+                <span class="course-level tr">Lisans</span><span class="course-level en">Undergraduate</span>
+                <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+              </div>
+              <div class="course-body"><div class="course-inner">
+                <p class="course-desc tr">DSM-5 tanı sistemi çerçevesinde başlıca psikopatoloji kategorilerinin ve vaka temelli tanısal değerlendirmenin incelenmesi.</p>
+                <p class="course-desc en">Major categories of psychopathology and case-based diagnostic assessment within the DSM-5 framework.</p>
+                <div class="gate">
+                  <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
+                  <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
+                  <span class="gate-msg" aria-live="polite"></span>
+                </div>
+                <ul class="files"></ul>
+              </div></div>
+            </div>
+
+            <div class="course" data-course="grupla-danisma">
+              <div class="course-head" role="button" tabindex="0" aria-expanded="false">
+                <span class="course-code">2776033</span>
+                <h3><span class="tr">Grupla Psikolojik Danışma</span><span class="en">Group Counseling</span></h3>
+                <span class="course-level tr">Lisans</span><span class="course-level en">Undergraduate</span>
+                <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+              </div>
+              <div class="course-body"><div class="course-inner">
+                <p class="course-desc tr">Grupla psikolojik danışmanın kuramsal temelleri; başlangıç, geçiş, eylem ve sonlandırma evreleri.</p>
+                <p class="course-desc en">Theoretical foundations of group counseling; initial, transition, working, and termination stages.</p>
+                <div class="gate">
+                  <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
+                  <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
+                  <span class="gate-msg" aria-live="polite"></span>
+                </div>
+                <ul class="files"></ul>
+              </div></div>
+            </div>
+
+            <div class="course" data-course="grupla-danisma-uygulama">
+              <div class="course-head" role="button" tabindex="0" aria-expanded="false">
+                <span class="course-code">2778023</span>
+                <h3><span class="tr">Grupla Psikolojik Danışma Uygulaması</span><span class="en">Group Counseling Practicum</span></h3>
+                <span class="course-level tr">Lisans · Uygulama</span><span class="course-level en">Undergraduate · Practicum</span>
+                <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+              </div>
+              <div class="course-body"><div class="course-inner">
+                <p class="course-desc tr">Grupla psikolojik danışma becerilerinin denetimli grup uygulamaları yoluyla geliştirilmesi.</p>
+                <p class="course-desc en">Developing group counseling skills through supervised group practice.</p>
+                <div class="gate">
+                  <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
+                  <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
+                  <span class="gate-msg" aria-live="polite"></span>
+                </div>
+                <ul class="files"></ul>
+              </div></div>
+            </div>
+
+            <div class="course" data-course="egitim-psikolojisi">
+              <div class="course-head" role="button" tabindex="0" aria-expanded="false">
+                <span class="course-code">EBZ102</span>
+                <h3><span class="tr">Eğitim Psikolojisi</span><span class="en">Educational Psychology</span></h3>
+                <span class="course-level tr">Formasyon</span><span class="course-level en">Teacher Training</span>
+                <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+              </div>
+              <div class="course-body"><div class="course-inner">
+                <p class="course-desc tr">Gelişim ve öğrenme kuramları, motivasyon, sınıf içi süreçler ve ölçme-değerlendirme.</p>
+                <p class="course-desc en">Developmental and learning theories, motivation, classroom processes, and assessment.</p>
+                <div class="gate">
+                  <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
+                  <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
+                  <span class="gate-msg" aria-live="polite"></span>
+                </div>
+                <ul class="files"></ul>
+              </div></div>
+            </div>
+
+            <div class="course" data-course="rpd-semineri">
+              <div class="course-head" role="button" tabindex="0" aria-expanded="false">
+                <span class="course-code">2778022</span>
+                <h3><span class="tr">Rehberlik ve Psikolojik Danışma Semineri</span><span class="en">Guidance &amp; Counseling Seminar</span></h3>
+                <span class="course-level tr">Lisans</span><span class="course-level en">Undergraduate</span>
+                <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+              </div>
+              <div class="course-body"><div class="course-inner">
+                <p class="course-desc tr">Alan yazını tarama, araştırma sorusu oluşturma ve akademik sunum becerilerinin geliştirilmesi.</p>
+                <p class="course-desc en">Developing literature review, research question formulation, and academic presentation skills.</p>
+                <div class="gate">
+                  <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
+                  <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
+                  <span class="gate-msg" aria-live="polite"></span>
+                </div>
+                <ul class="files"></ul>
+              </div></div>
+            </div>
+
+            <div class="course" data-course="kurum-deneyimi">
+              <div class="course-head" role="button" tabindex="0" aria-expanded="false">
+                <span class="course-code">2778024</span>
+                <h3><span class="tr">Kurum Deneyimi</span><span class="en">Field Experience</span></h3>
+                <span class="course-level tr">Lisans · Uygulama</span><span class="course-level en">Undergraduate · Practicum</span>
+                <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+              </div>
+              <div class="course-body"><div class="course-inner">
+                <p class="course-desc tr">Psikolojik danışma ve rehberlik hizmetlerinin yürütüldüğü kurumlarda gözlem ve uygulama deneyimi.</p>
+                <p class="course-desc en">Observation and applied experience in institutions that provide guidance and counseling services.</p>
+                <div class="gate">
+                  <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
+                  <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
+                  <span class="gate-msg" aria-live="polite"></span>
+                </div>
+                <ul class="files"></ul>
+              </div></div>
+            </div>
+
+            <div class="course" data-course="okullarda-rpd">
+              <div class="course-head" role="button" tabindex="0" aria-expanded="false">
+                <span class="course-code">2778020</span>
+                <h3><span class="tr">Okullarda RPD Uygulamaları</span><span class="en">Guidance &amp; Counseling Practice in Schools</span></h3>
+                <span class="course-level tr">Lisans · Uygulama</span><span class="course-level en">Undergraduate · Practicum</span>
+                <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+              </div>
+              <div class="course-body"><div class="course-inner">
+                <p class="course-desc tr">Okul ortamında rehberlik ve psikolojik danışma uygulamalarının denetimli biçimde yürütülmesi.</p>
+                <p class="course-desc en">Supervised guidance and counseling practice in school settings.</p>
+                <div class="gate">
+                  <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
+                  <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
+                  <span class="gate-msg" aria-live="polite"></span>
+                </div>
+                <ul class="files"></ul>
+              </div></div>
+            </div>
+
+            <div class="course" data-course="alan-calismasi">
+              <div class="course-head" role="button" tabindex="0" aria-expanded="false">
+                <span class="course-code">2778025</span>
+                <h3><span class="tr">Psikolojik Danışma ve Rehberlik Alan Çalışması II</span><span class="en">Counseling Field Study II</span></h3>
+                <span class="course-level tr">Lisans · Uygulama</span><span class="course-level en">Undergraduate · Practicum</span>
+                <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+              </div>
+              <div class="course-body"><div class="course-inner">
+                <p class="course-desc tr">Alanda yürütülen psikolojik danışma çalışmalarının süpervizyon eşliğinde değerlendirilmesi.</p>
+                <p class="course-desc en">Supervised evaluation of counseling work conducted in the field.</p>
+                <div class="gate">
+                  <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
+                  <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
+                  <span class="gate-msg" aria-live="polite"></span>
+                </div>
+                <ul class="files"></ul>
+              </div></div>
+            </div>
+
+            <div class="course" data-course="bireysel-danisma-uygulama">
+              <div class="course-head" role="button" tabindex="0" aria-expanded="false">
+                <span class="course-code">010204720014</span>
+                <h3><span class="tr">Bireysel Psikolojik Danışma Uygulaması II</span><span class="en">Individual Counseling Practicum II</span></h3>
+                <span class="course-level tr">Yüksek Lisans</span><span class="course-level en">Graduate</span>
+                <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+              </div>
+              <div class="course-body"><div class="course-inner">
+                <p class="course-desc tr">Lisansüstü düzeyde bireysel psikolojik danışma becerilerinin süpervizyon eşliğinde geliştirilmesi.</p>
+                <p class="course-desc en">Developing individual counseling skills at the graduate level under supervision.</p>
+                <div class="gate">
+                  <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
+                  <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
+                  <span class="gate-msg" aria-live="polite"></span>
+                </div>
+                <ul class="files"></ul>
+              </div></div>
+            </div>
+
+            <div class="course" data-course="donem-projesi">
+              <div class="course-head" role="button" tabindex="0" aria-expanded="false">
+                <span class="course-code">010001</span>
+                <h3><span class="tr">Dönem Projesi</span><span class="en">Term Project</span></h3>
+                <span class="course-level tr">Yüksek Lisans</span><span class="course-level en">Graduate</span>
+                <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+              </div>
+              <div class="course-body"><div class="course-inner">
+                <p class="course-desc tr">Tezsiz yüksek lisans öğrencilerinin danışman gözetiminde yürüttüğü dönem projesi çalışması.</p>
+                <p class="course-desc en">Term project carried out by non-thesis master's students under advisor supervision.</p>
+                <div class="gate">
+                  <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
+                  <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
+                  <span class="gate-msg" aria-live="polite"></span>
+                </div>
+                <ul class="files"></ul>
+              </div></div>
+            </div>
+
+            <div class="course" data-course="uzmanlik-alan">
+              <div class="course-head" role="button" tabindex="0" aria-expanded="false">
+                <span class="course-code">UZY1001</span>
+                <h3><span class="tr">Uzmanlık Alan Dersi I</span><span class="en">Specialization Field Course I</span></h3>
+                <span class="course-level tr">Yüksek Lisans</span><span class="course-level en">Graduate</span>
+                <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+              </div>
+              <div class="course-body"><div class="course-inner">
+                <p class="course-desc tr">Lisansüstü öğrencilerin uzmanlık alanlarına yönelik kuramsal ve uygulamalı çalışmaları.</p>
+                <p class="course-desc en">Theoretical and applied work oriented to graduate students' areas of specialization.</p>
+                <div class="gate">
+                  <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
+                  <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
+                  <span class="gate-msg" aria-live="polite"></span>
+                </div>
+                <ul class="files"></ul>
+              </div></div>
+            </div>
+
           </div>
-          <ul class="files"></ul>
-        </div></div>
+        </div>
       </div>
 
-      <div class="course" data-course="grup">
-        <div class="course-head" role="button" tabindex="0" aria-expanded="false">
-          <span class="course-code">PDR XXX</span>
-          <h3><span class="tr">Grup ile Psikolojik Danışma</span><span class="en">Group Counseling</span></h3>
-          <span class="course-level tr">Lisans</span><span class="course-level en">Undergraduate</span>
-          <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
+      <!-- ═══ GELECEK DÖNEM (placeholder) ═══ -->
+      <div class="semester">
+        <div class="semester-head" role="button" tabindex="0" aria-expanded="false">
+          <h3>2026–2027 <span class="tr">Güz</span><span class="en">Fall</span></h3>
+          <span class="semester-tag past tr">Yakında</span><span class="semester-tag past en">Soon</span>
+          <span class="semester-spacer"></span>
+          <svg class="semester-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </div>
-        <div class="course-body"><div class="course-inner">
-          <p class="course-desc tr">Grupla psikolojik danışmanın kuramsal temelleri; başlangıç, geçiş, eylem ve sonlandırma evreleri; uygulamalı etkinlikler.</p>
-          <p class="course-desc en">Theoretical foundations of group counseling; initial, transition, working, and termination stages; experiential activities.</p>
-          <div class="gate">
-            <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
-            <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
-            <span class="gate-msg" aria-live="polite"></span>
+        <div class="semester-body">
+          <div class="course-list">
+            <p class="course-desc tr" style="padding:1rem .2rem;">Bu dönemin dersleri dönem başında eklenecektir.</p>
+            <p class="course-desc en" style="padding:1rem .2rem;">Courses for this semester will be added at the start of the term.</p>
           </div>
-          <ul class="files"></ul>
-        </div></div>
+        </div>
       </div>
 
-      <div class="course" data-course="yakin-iliskiler">
-        <div class="course-head" role="button" tabindex="0" aria-expanded="false">
-          <span class="course-code">PDR XXX</span>
-          <h3><span class="tr">Yakın İlişkiler Psikolojisi</span><span class="en">Psychology of Close Relationships</span></h3>
-          <span class="course-level tr">Lisans / YL</span><span class="course-level en">UG / Graduate</span>
-          <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
-        </div>
-        <div class="course-body"><div class="course-inner">
-          <p class="course-desc tr">Bağlanma, aşk kuramları, toksik ilişkiler, sosyal medya ve ilişkiler, toplumsal cinsiyet rolleri, ilişki sonlanması.</p>
-          <p class="course-desc en">Attachment, theories of love, toxic relationships, social media and relationships, gender roles, relationship dissolution.</p>
-          <div class="gate">
-            <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
-            <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
-            <span class="gate-msg" aria-live="polite"></span>
-          </div>
-          <ul class="files"></ul>
-        </div></div>
-      </div>
-
-      <div class="course" data-course="egitim-psikolojisi">
-        <div class="course-head" role="button" tabindex="0" aria-expanded="false">
-          <span class="course-code">EGT XXX</span>
-          <h3><span class="tr">Eğitim Psikolojisi</span><span class="en">Educational Psychology</span></h3>
-          <span class="course-level tr">Lisans</span><span class="course-level en">Undergraduate</span>
-          <svg class="lock-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg>
-        </div>
-        <div class="course-body"><div class="course-inner">
-          <p class="course-desc tr">Gelişim ve öğrenme kuramları, motivasyon, sınıf içi süreçler ve değerlendirme.</p>
-          <p class="course-desc en">Developmental and learning theories, motivation, classroom processes, and assessment.</p>
-          <div class="gate">
-            <input type="password" placeholder="Dönem şifresi / Passcode" aria-label="Course passcode">
-            <button onclick="unlock(this)"><span class="tr">Dosyaları Aç</span><span class="en">Unlock Files</span></button>
-            <span class="gate-msg" aria-live="polite"></span>
-          </div>
-          <ul class="files"></ul>
-        </div></div>
-      </div>
     </div>
   </div>
 </section>
@@ -1055,6 +1284,19 @@ menuBtn.addEventListener('click', () => {
   const nav = document.getElementById('navLinks');
   const open = nav.classList.toggle('open');
   menuBtn.setAttribute('aria-expanded', open);
+});
+
+/* ─── SEMESTER ACCORDION ─── */
+document.querySelectorAll('.semester-head').forEach(head => {
+  const toggle = () => {
+    const s = head.closest('.semester');
+    const open = s.classList.toggle('open');
+    head.setAttribute('aria-expanded', open);
+  };
+  head.addEventListener('click', toggle);
+  head.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+  });
 });
 
 /* ─── CITATION COPY ─── */
