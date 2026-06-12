@@ -298,6 +298,12 @@
   .course.open .lock-ico { transform: rotate(0); }
   .course.unlocked .lock-ico { color: var(--ok); }
 
+  /* ─── ARCHIVE (PAST) COURSES ─── */
+  .course.archive .course-head { cursor: pointer; }
+  .course.archive .lock-ico { display: none; }
+  .course.archive .arc-ico { color: var(--text-light); transition: transform .3s; flex-shrink: 0; }
+  .course.archive.open .arc-ico { transform: rotate(180deg); }
+
   .course-body {
     max-height: 0; overflow: hidden; transition: max-height .4s ease;
     border-top: 0 solid var(--rule);
@@ -1108,21 +1114,7 @@
         </div>
       </div>
 
-      <!-- ═══ GELECEK DÖNEM (placeholder) ═══ -->
-      <div class="semester">
-        <div class="semester-head" role="button" tabindex="0" aria-expanded="false">
-          <h3>2026–2027 <span class="tr">Güz</span><span class="en">Fall</span></h3>
-          <span class="semester-tag past tr">Yakında</span><span class="semester-tag past en">Soon</span>
-          <span class="semester-spacer"></span>
-          <svg class="semester-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-        <div class="semester-body">
-          <div class="course-list">
-            <p class="course-desc tr" style="padding:1rem .2rem;">Bu dönemin dersleri dönem başında eklenecektir.</p>
-            <p class="course-desc en" style="padding:1rem .2rem;">Courses for this semester will be added at the start of the term.</p>
-          </div>
-        </div>
-      </div>
+      <!-- ═══ GEÇMİŞ DÖNEMLER buraya eklenecek ═══ -->
 
     </div>
   </div>
