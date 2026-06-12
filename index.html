@@ -146,6 +146,15 @@
   .focus-card li::before { content: "—"; color: var(--accent); }
 
   /* ─── PUBLICATIONS ─── */
+  /* ─── PUBLICATIONS LAYOUT ─── */
+  .pub-layout { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
+  .pub-main { min-width: 0; }
+  .pub-aside { position: sticky; top: 90px; }
+  @media (max-width: 860px) {
+    .pub-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .pub-aside { position: static; }
+  }
+
   .pub-list { display: flex; flex-direction: column; }
   .pub {
     display: grid; grid-template-columns: 70px 1fr auto; gap: 1.5rem;
@@ -504,6 +513,8 @@
 <section class="page" id="yayinlar">
   <div class="wrap">
     <div class="eyebrow"><span class="tr">Yayınlar</span><span class="en">Publications</span></div>
+    <div class="pub-layout">
+      <div class="pub-main">
     <h2 class="tr">Makaleler</h2>
     <h2 class="en">Journal Articles</h2>
     <div class="pub-list">
@@ -716,19 +727,21 @@
 
       </div>
     </div>
+      </div><!-- /pub-main -->
 
-    <div style="margin-top:3.5rem;">
-      <div class="eyebrow"><span class="tr">Güncel Çalışmalar</span><span class="en">Current Work</span></div>
-      <div class="focus-card" style="max-width:52rem;">
-        <h3 class="tr">Devam eden projeler</h3>
-        <h3 class="en">Ongoing projects</h3>
-        <ul>
-          <li><span class="tr">Kompulsif Kaydırma Ölçeği (KKÖ) geliştirme çalışması</span><span class="en">Development of the Compulsive Scrolling Scale</span></li>
-          <li><span class="tr">Günlük stresörler ve psikiyatrik örneklem çalışması (BDSST)</span><span class="en">Daily stressors in a psychiatric outpatient sample (BDSST)</span></li>
-          <li><span class="tr">Toksik ilişki davranışları ve psikolojik iyi oluş: düzenleyici aracılık modelleri</span><span class="en">Toxic relationship behaviors and well-being: moderated mediation models</span></li>
-        </ul>
-      </div>
-    </div>
+      <aside class="pub-aside">
+        <div class="eyebrow"><span class="tr">Güncel Çalışmalar</span><span class="en">Current Work</span></div>
+        <div class="focus-card">
+          <h3 class="tr">Devam eden projeler</h3>
+          <h3 class="en">Ongoing projects</h3>
+          <ul>
+            <li><span class="tr">Kompulsif Kaydırma Ölçeği (KKÖ) geliştirme çalışması</span><span class="en">Development of the Compulsive Scrolling Scale</span></li>
+            <li><span class="tr">Günlük stresörler ve psikiyatrik örneklem çalışması (BDSST)</span><span class="en">Daily stressors in a psychiatric outpatient sample (BDSST)</span></li>
+            <li><span class="tr">Toksik ilişki davranışları ve psikolojik iyi oluş: düzenleyici aracılık modelleri</span><span class="en">Toxic relationship behaviors and well-being: moderated mediation models</span></li>
+          </ul>
+        </div>
+      </aside>
+    </div><!-- /pub-layout -->
   </div>
 </section>
 
@@ -1141,8 +1154,7 @@
         <p class="tr">Görüşme saatlerim her dönem güncellenir. Bu saatlerde ofisime randevusuz uğrayabilirsiniz; yoğunluk durumunda önceden e-posta ile haber vermeniz önerilir.</p>
         <p class="en">My office hours are updated each semester. You may drop by during these hours without an appointment; emailing ahead is recommended during busy periods.</p>
         <ul>
-          <li><span class="tr">[Gün] · [Saat aralığı]</span><span class="en">[Day] · [Time range]</span></li>
-          <li><span class="tr">[Gün] · [Saat aralığı]</span><span class="en">[Day] · [Time range]</span></li>
+          <li><span class="tr">Cuma · 10.30 – 12.00</span><span class="en">Friday · 10:30 – 12:00</span></li>
         </ul>
       </div>
 
@@ -1186,7 +1198,7 @@
         <p class="tr">İlgi alanlarınıza göre okuma ve kaynak önerileri zaman zaman burada paylaşılacaktır. Belirli bir konuda kaynak önerisi isterseniz çekinmeden sorabilirsiniz.</p>
         <p class="en">Reading and resource recommendations will be shared here from time to time. Feel free to ask if you'd like suggestions on a specific topic.</p>
         <ul>
-          <li><span class="tr">[Okuma listesi / bağlantı eklenecek]</span><span class="en">[Reading list / link to be added]</span></li>
+          <li><span class="tr">İçerik hazırlanıyor…</span><span class="en">Content in preparation…</span></li>
         </ul>
       </div>
 
@@ -1196,7 +1208,8 @@
         <p class="tr">Zorlandığınız bir dönemden geçiyorsanız yalnız değilsiniz. Aşağıdaki birimlere başvurabilir, dilerseniz benimle de iletişime geçebilirsiniz.</p>
         <p class="en">If you are going through a difficult time, you are not alone. You can reach out to the units below, or contact me if you wish.</p>
         <ul>
-          <li><span class="tr">Mersin Üniversitesi Psikolojik Danışma Birimi — [iletişim eklenecek]</span><span class="en">Mersin University Psychological Counseling Unit — [contact to be added]</span></li>
+          <li><span class="tr">Mersin Üniversitesi Psikolojik Danışma ve Rehberlik Merkezi (PDRM): pdrm@mersin.edu.tr</span><span class="en">Mersin University Psychological Counseling &amp; Guidance Center (PDRM): pdrm@mersin.edu.tr</span></li>
+          <li><span class="tr">Mersin Üniversitesi Güvenlik Birimi: 0 (324) 361 01 15</span><span class="en">Mersin University Security Unit: 0 (324) 361 01 15</span></li>
           <li><span class="tr">Acil durumlarda: 112</span><span class="en">In emergencies: 112</span></li>
         </ul>
       </div>
