@@ -423,7 +423,6 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#top"><span class="tr">Ana Sayfa</span><span class="en">Home</span></a></li>
       <li><a href="#hakkimda"><span class="tr">Hakkımda</span><span class="en">About</span></a></li>
-      <li><a href="#cv">CV</a></li>
       <li><a href="#yayinlar"><span class="tr">Yayınlar</span><span class="en">Publications</span></a></li>
       <li><a href="#olcekler"><span class="tr">Ölçme Araçları</span><span class="en">Instruments</span></a></li>
       <li><a href="#dersler"><span class="tr">Dersler</span><span class="en">Courses</span></a></li>
@@ -449,7 +448,6 @@
       <p class="hero-sub tr">Psikolojik Danışma ve Rehberlik alanında öğretim üyesiyim. Yakın ilişkiler, toksik ilişki dinamikleri ve sosyal medya psikolojisi üzerine çalışıyorum. Bir insanı anlamanın yolunun, onu içinde var olduğu ilişki ağıyla birlikte görmekten geçtiğine inanıyorum — çünkü Bateson'ın da dediği gibi, anlam bağlantının kendisindedir.</p>
       <p class="hero-sub en">I am a faculty member in Psychological Counseling and Guidance. My work focuses on close relationships, toxic relationship dynamics, and the psychology of social media. I believe the way to understand a person is to see them within the web of relationships they inhabit — for, as Bateson put it, meaning lies in the connection itself.</p>
       <div class="hero-links">
-        <a class="pill pill-solid" href="#cv"><span class="tr">CV'yi Görüntüle</span><span class="en">View CV</span></a>
         <a class="pill pill-line" href="https://scholar.google.com/citations?user=wh8brR4AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
         <a class="pill pill-line" href="https://orcid.org/0000-0001-8904-8091" target="_blank" rel="noopener">ORCID</a>
         <a class="pill pill-line" href="https://www.researchgate.net/profile/Ali-Kurt-7" target="_blank" rel="noopener">ResearchGate</a>
@@ -489,22 +487,11 @@
         <p class="en">I serve as an <strong>Assistant Professor</strong> in the Department of Guidance and Psychological Counseling at Mersin University's Faculty of Education, teaching courses such as Psychopathology, Group Counseling, Psychology of Close Relationships, Personality Theories, Individual Counseling Practicum, and Educational Psychology at undergraduate and graduate levels. My academic training is grounded in systemic and family-based approaches; I believe that understanding a person means considering them together with the web of relationships they inhabit.</p>
         <p class="en">My research centers on romantic relationships, toxic relationship dynamics, marriage and divorce processes, marital satisfaction, and the effects of social media use on relationships and emotion regulation. I have developed and adapted psychometric instruments in areas including toxic relationship behaviors, divorce anxiety, and perceived family boundaries. I position my theoretical framework at the intersection of attachment theory, Acceptance and Commitment Therapy (ACT), and systemic family approaches.</p>
         <p class="en">Alongside my academic work, I practice as a systemically oriented therapist working with adults. I provide support on a wide range of concerns — primarily romantic relationship and family difficulties, as well as anxiety, depressive symptoms, and challenges related to life transitions. A systemic perspective allows me to see a client's difficulty not merely as an individual symptom, but as part of the relational patterns they are embedded in.</p>
+        <div class="hero-links" style="margin-top:1.6rem;">
+          <a class="pill pill-solid" href="ali-ammar-kurt-cv-tr.pdf" target="_blank" rel="noopener"><span class="tr">CV (Türkçe, PDF)</span><span class="en">CV (Turkish, PDF)</span></a>
+          <a class="pill pill-line" href="ali-ammar-kurt-cv-en.pdf" target="_blank" rel="noopener"><span class="tr">CV (İngilizce, PDF)</span><span class="en">CV (English, PDF)</span></a>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CV ─── -->
-<section class="page" id="cv">
-  <div class="wrap">
-    <div class="eyebrow">Curriculum Vitae</div>
-    <h2 class="tr">Özgeçmiş</h2>
-    <h2 class="en">Curriculum Vitae</h2>
-    <p class="tr" style="color:var(--text-mid); max-width:38rem; margin-bottom:1.5rem;">Güncel akademik özgeçmişimi (eğitim, yayınlar, projeler, verilen dersler ve idari görevler) PDF olarak görüntüleyebilir veya indirebilirsiniz.</p>
-    <p class="en" style="color:var(--text-mid); max-width:38rem; margin-bottom:1.5rem;">You can view or download my full academic CV (education, publications, projects, teaching, and administrative roles) as a PDF.</p>
-    <div class="hero-links" style="margin-top:0;">
-      <a class="pill pill-solid" href="ali-ammar-kurt-cv-tr.pdf" target="_blank" rel="noopener"><span class="tr">CV (Türkçe, PDF)</span><span class="en">CV (Turkish, PDF)</span></a>
-      <a class="pill pill-line" href="ali-ammar-kurt-cv-en.pdf" target="_blank" rel="noopener"><span class="tr">CV (İngilizce, PDF)</span><span class="en">CV (English, PDF)</span></a>
     </div>
   </div>
 </section>
@@ -1342,7 +1329,7 @@ document.querySelectorAll('.gate input').forEach(inp => {
 });
 
 /* ─── PAGE ROUTER ─── */
-const PAGES = ['top', 'hakkimda', 'cv', 'yayinlar', 'olcekler', 'dersler', 'ogrenciler'];
+const PAGES = ['top', 'hakkimda', 'yayinlar', 'olcekler', 'dersler', 'ogrenciler'];
 function route() {
   const id = (location.hash || '#top').slice(1);
   const target = PAGES.includes(id) ? id : 'top';
