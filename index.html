@@ -298,11 +298,24 @@
   .course.open .lock-ico { transform: rotate(0); }
   .course.unlocked .lock-ico { color: var(--ok); }
 
-  /* ─── ARCHIVE (PAST) COURSES ─── */
-  .course.archive .course-head { cursor: pointer; }
-  .course.archive .lock-ico { display: none; }
-  .course.archive .arc-ico { color: var(--text-light); transition: transform .3s; flex-shrink: 0; }
-  .course.archive.open .arc-ico { transform: rotate(180deg); }
+  /* ─── ARCHIVE (PAST) COURSE ROWS ─── */
+  .arc-list { display: flex; flex-direction: column; padding-top: 1.1rem; }
+  .arc-row {
+    display: flex; align-items: baseline; gap: 1.1rem;
+    padding: .85rem .2rem; border-bottom: 1px solid var(--rule);
+  }
+  .arc-row:last-child { border-bottom: none; }
+  .arc-code {
+    font-family: var(--mono); font-size: .7rem; color: var(--accent);
+    min-width: 92px; flex-shrink: 0;
+  }
+  .arc-name { font-family: var(--serif); font-size: 1.02rem; flex: 1; line-height: 1.35; }
+  .arc-level { font-size: .74rem; color: var(--text-light); white-space: nowrap; flex-shrink: 0; }
+  @media (max-width: 600px) {
+    .arc-row { flex-wrap: wrap; gap: .3rem .9rem; }
+    .arc-code { min-width: 0; }
+    .arc-name { flex-basis: 100%; order: 3; }
+  }
 
   .course-body {
     max-height: 0; overflow: hidden; transition: max-height .4s ease;
@@ -1114,7 +1127,69 @@
         </div>
       </div>
 
-      <!-- ═══ GEÇMİŞ DÖNEMLER buraya eklenecek ═══ -->
+      <!-- ═══ GEÇMİŞ DÖNEMLER ═══ -->
+
+      <div class="semester">
+        <div class="semester-head" role="button" tabindex="0" aria-expanded="false">
+          <h3>2025–2026 <span class="tr">Güz</span><span class="en">Fall</span></h3>
+          <span class="semester-tag past tr">Geçmiş</span><span class="semester-tag past en">Past</span>
+          <span class="semester-spacer"></span>
+          <svg class="semester-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="semester-body">
+          <div class="arc-list">
+            <div class="arc-row"><span class="arc-code">2770076</span><span class="arc-name">Yakın İlişkiler Psikolojisi</span><span class="arc-level tr">Lisans · Seçmeli</span><span class="arc-level en">Undergraduate · Elective</span></div>
+            <div class="arc-row"><span class="arc-code">2775013</span><span class="arc-name">Kişilik Kuramları</span><span class="arc-level tr">Lisans</span><span class="arc-level en">Undergraduate</span></div>
+            <div class="arc-row"><span class="arc-code">2775033</span><span class="arc-name">Davranış Bozuklukları / Psikopatoloji I</span><span class="arc-level tr">Lisans</span><span class="arc-level en">Undergraduate</span></div>
+            <div class="arc-row"><span class="arc-code">2777033</span><span class="arc-name">Bireyle Psikolojik Danışma Uygulaması I</span><span class="arc-level tr">Lisans · Uygulama</span><span class="arc-level en">Undergraduate · Practicum</span></div>
+            <div class="arc-row"><span class="arc-code">2777031</span><span class="arc-name">Psikolojik Danışma ve Rehberlik Alan Çalışması I</span><span class="arc-level tr">Lisans · Uygulama</span><span class="arc-level en">Undergraduate · Practicum</span></div>
+            <div class="arc-row"><span class="arc-code">EBZ401</span><span class="arc-name">Okullarda Rehberlik</span><span class="arc-level tr">Formasyon</span><span class="arc-level en">Teacher Training</span></div>
+            <div class="arc-row"><span class="arc-code">PFR-038</span><span class="arc-name">Eğitim Psikolojisi (Formasyon)</span><span class="arc-level tr">Formasyon</span><span class="arc-level en">Teacher Training</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="semester">
+        <div class="semester-head" role="button" tabindex="0" aria-expanded="false">
+          <h3>2024–2025 <span class="tr">Bahar</span><span class="en">Spring</span></h3>
+          <span class="semester-tag past tr">Geçmiş</span><span class="semester-tag past en">Past</span>
+          <span class="semester-spacer"></span>
+          <svg class="semester-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="semester-body">
+          <div class="arc-list">
+            <div class="arc-row"><span class="arc-code">2770009</span><span class="arc-name">Yakın İlişkiler Psikolojisi</span><span class="arc-level tr">Lisans · Seçmeli</span><span class="arc-level en">Undergraduate · Elective</span></div>
+            <div class="arc-row"><span class="arc-code">2774021</span><span class="arc-name">Kişilik Kuramları</span><span class="arc-level tr">Lisans</span><span class="arc-level en">Undergraduate</span></div>
+            <div class="arc-row"><span class="arc-code">2776030</span><span class="arc-name">Davranış Bozuklukları / Psikopatoloji II</span><span class="arc-level tr">Lisans</span><span class="arc-level en">Undergraduate</span></div>
+            <div class="arc-row"><span class="arc-code">2776033</span><span class="arc-name">Grupla Psikolojik Danışma</span><span class="arc-level tr">Lisans</span><span class="arc-level en">Undergraduate</span></div>
+            <div class="arc-row"><span class="arc-code">2778020</span><span class="arc-name">Okullarda RPD Uygulamaları II</span><span class="arc-level tr">Lisans · Uygulama</span><span class="arc-level en">Undergraduate · Practicum</span></div>
+            <div class="arc-row"><span class="arc-code">2778016</span><span class="arc-name">Bireyle Psikolojik Danışma Uygulaması II</span><span class="arc-level tr">Lisans · Uygulama</span><span class="arc-level en">Undergraduate · Practicum</span></div>
+            <div class="arc-row"><span class="arc-code">2778019</span><span class="arc-name">Rehberlik ve Psikolojik Danışma Semineri</span><span class="arc-level tr">Lisans</span><span class="arc-level en">Undergraduate</span></div>
+            <div class="arc-row"><span class="arc-code">EFMBZ0013</span><span class="arc-name">Okullarda Rehberlik</span><span class="arc-level tr">Formasyon</span><span class="arc-level en">Teacher Training</span></div>
+            <div class="arc-row"><span class="arc-code">EBZ102</span><span class="arc-name">Eğitim Psikolojisi</span><span class="arc-level tr">Formasyon</span><span class="arc-level en">Teacher Training</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="semester">
+        <div class="semester-head" role="button" tabindex="0" aria-expanded="false">
+          <h3>2024–2025 <span class="tr">Güz</span><span class="en">Fall</span></h3>
+          <span class="semester-tag past tr">Geçmiş</span><span class="semester-tag past en">Past</span>
+          <span class="semester-spacer"></span>
+          <svg class="semester-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="semester-body">
+          <div class="arc-list">
+            <div class="arc-row"><span class="arc-code">2770076</span><span class="arc-name">Yakın İlişkiler Psikolojisi</span><span class="arc-level tr">Lisans · Seçmeli</span><span class="arc-level en">Undergraduate · Elective</span></div>
+            <div class="arc-row"><span class="arc-code">2775027</span><span class="arc-name">Kişilik Kuramları</span><span class="arc-level tr">Lisans</span><span class="arc-level en">Undergraduate</span></div>
+            <div class="arc-row"><span class="arc-code">2775033</span><span class="arc-name">Davranış Bozuklukları / Psikopatoloji I</span><span class="arc-level tr">Lisans</span><span class="arc-level en">Undergraduate</span></div>
+            <div class="arc-row"><span class="arc-code">2777027</span><span class="arc-name">Okullarda RPD Uygulamaları I</span><span class="arc-level tr">Lisans · Uygulama</span><span class="arc-level en">Undergraduate · Practicum</span></div>
+            <div class="arc-row"><span class="arc-code">2777025</span><span class="arc-name">Bireyle Psikolojik Danışma Uygulaması I</span><span class="arc-level tr">Lisans · Uygulama</span><span class="arc-level en">Undergraduate · Practicum</span></div>
+            <div class="arc-row"><span class="arc-code">EBZ401</span><span class="arc-name">Okullarda Rehberlik</span><span class="arc-level tr">Formasyon</span><span class="arc-level en">Teacher Training</span></div>
+            <div class="arc-row"><span class="arc-code">PFR-038</span><span class="arc-name">Eğitim Psikolojisi (Formasyon)</span><span class="arc-level tr">Formasyon</span><span class="arc-level en">Teacher Training</span></div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
