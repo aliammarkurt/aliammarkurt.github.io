@@ -171,6 +171,19 @@
   .pill-line { border: 1px solid var(--rule); color: var(--text-mid); }
   .pill-line:hover { border-color: var(--accent); color: var(--accent); }
 
+  .hero-icons { gap: .7rem; }
+  .icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid var(--rule); color: var(--text-mid);
+    transition: all .2s; text-decoration: none;
+  }
+  .icon-btn svg { width: 19px; height: 19px; }
+  .icon-btn:hover {
+    border-color: var(--accent); color: var(--accent);
+    background: var(--accent-soft); transform: translateY(-2px);
+  }
+
   /* ─── ABOUT ─── */
   .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; }
   .about-text p + p { margin-top: 1rem; }
@@ -519,12 +532,12 @@
       <h1 class="en">Understanding relationships,<br><em>seeing</em> the person.</h1>
       <p class="hero-sub tr">Psikolojik Danışma ve Rehberlik alanında öğretim üyesiyim. Yakın ilişkiler, toksik ilişki dinamikleri ve sosyal medya psikolojisi üzerine çalışıyorum. Bir insanı anlamanın yolunun, onu içinde var olduğu ilişki ağıyla birlikte görmekten geçtiğine inanıyorum — çünkü Bateson'ın da dediği gibi, anlam bağlantının kendisindedir.</p>
       <p class="hero-sub en">I am a faculty member in Psychological Counseling and Guidance. My work focuses on close relationships, toxic relationship dynamics, and the psychology of social media. I believe the way to understand a person is to see them within the web of relationships they inhabit — for, as Bateson put it, meaning lies in the connection itself.</p>
-      <div class="hero-links">
-        <a class="pill pill-line" href="https://scholar.google.com/citations?user=wh8brR4AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-        <a class="pill pill-line" href="https://orcid.org/0000-0001-8904-8091" target="_blank" rel="noopener">ORCID</a>
-        <a class="pill pill-line" href="https://www.researchgate.net/profile/Ali-Kurt-7" target="_blank" rel="noopener">ResearchGate</a>
-        <a class="pill pill-line" href="https://www.instagram.com/aliammarkurt.phd" target="_blank" rel="noopener">Instagram</a>
-        <a class="pill pill-line" href="mailto:aliammarkurt@mersin.edu.tr">E-posta</a>
+      <div class="hero-links hero-icons">
+        <a class="icon-btn" href="https://scholar.google.com/citations?user=wh8brR4AAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></a>
+        <a class="icon-btn" href="https://orcid.org/0000-0001-8904-8091" target="_blank" rel="noopener" aria-label="ORCID" title="ORCID"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></svg></a>
+        <a class="icon-btn" href="https://www.researchgate.net/profile/Ali-Kurt-7" target="_blank" rel="noopener" aria-label="ResearchGate" title="ResearchGate"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a3.193 3.193 0 0 0-.112.437 8.365 8.365 0 0 0-.078.53 9 9 0 0 0-.05.727c-.01.282-.013.621-.013 1.016a31.121 31.123 0 0 0 .014 1.017 9 9 0 0 0 .05.727 7.946 7.946 0 0 0 .077.53h-.005a3.334 3.334 0 0 0 .113.438c.245.743.65 1.303 1.214 1.68.565.376 1.256.564 2.075.564.8 0 1.536-.213 2.105-.603.57-.39.95-.916 1.175-1.65.076-.235.135-.558.177-.93a10.9 10.9 0 0 0 .043-1.207v-.82c0-.095-.047-.142-.14-.142h-3.064c-.094 0-.14.047-.14.141v.293c0 .094.046.14.14.14h2.226v.512c0 .388-.029.738-.084 1.05-.057.312-.18.572-.37.78-.157.172-.36.305-.612.4-.252.094-.539.141-.86.141-.32 0-.609-.05-.866-.149a1.585 1.585 0 0 1-.638-.426 1.985 1.985 0 0 1-.426-.808 4.55 4.55 0 0 1-.155-1.232c0-.413.01-.74.029-.98.018-.24.045-.448.082-.624.157-.715.48-1.193.97-1.434a2.66 2.66 0 0 1 1.193-.272c.196 0 .378.018.546.054.168.036.32.094.456.173.137.078.257.18.36.305.105.124.19.273.255.448.026.071.07.107.13.107h.33c.06 0 .09-.036.09-.107a2.103 2.103 0 0 0-.255-.81 2.395 2.395 0 0 0-.6-.72 2.99 2.99 0 0 0-.918-.51A3.638 3.638 0 0 0 19.586 0zM8.217 5.836c-1.69 0-3.036.086-4.297.086-1.146 0-2.291 0-3.007-.029v.6c.831.063 1.118.143 1.347.586.2.4.258 1.057.258 1.886v8.213c0 .828-.057 1.485-.258 1.885-.229.443-.516.523-1.347.586v.6c.745-.029 1.918-.057 2.92-.057 1.06 0 2.405.028 3.207.057v-.6c-1.088-.063-1.49-.143-1.748-.586-.2-.4-.258-1.057-.258-1.885v-3.207h.117c.917.572 2.005 2.234 3.694 4.524.802 1.087 1.604 1.969 2.234 2.234.345.143.717.2 1.146.2.516 0 1.318-.029 1.748-.057v-.6c-.831-.063-1.49-.4-2.234-1.318-.717-.857-1.604-2.062-2.62-3.265-.516-.572-1.06-1.146-1.547-1.547 2.062-.286 3.293-1.49 3.293-3.265 0-1.318-.745-2.205-1.49-2.605-.917-.516-2.005-.659-3.293-.659zm-.286.886c.917 0 1.633.143 2.176.486.602.401.917 1.06.917 1.948 0 1.69-1.232 2.62-3.121 2.62-.516 0-.917-.029-1.232-.086V7.236c.401-.286 1.146-.514 1.262-.514z"/></svg></a>
+        <a class="icon-btn" href="https://www.instagram.com/aliammarkurt.phd" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a class="icon-btn" href="mailto:aliammarkurt@mersin.edu.tr" aria-label="E-posta" title="E-posta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></a>
       </div>
     </div>
     <div class="hero-right">
