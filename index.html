@@ -325,6 +325,7 @@
     background: var(--accent); color: #fff;
   }
   .semester-tag.past { background: transparent; color: var(--text-light); border: 1px solid var(--rule); }
+  .semester-tag.future { background: var(--accent-soft); color: var(--accent); }
   .semester-spacer { flex: 1; }
   .semester-chev {
     color: var(--text-light); transition: transform .3s; flex-shrink: 0;
@@ -965,11 +966,27 @@
 
     <div class="course-list-wrap">
 
-      <!-- ═══ AKTİF DÖNEM ═══ -->
-      <div class="semester open">
-        <div class="semester-head" role="button" tabindex="0" aria-expanded="true">
+      <!-- ═══ 2026–2027 GÜZ (GELECEK DÖNEM) ═══ -->
+      <div class="semester">
+        <div class="semester-head" role="button" tabindex="0" aria-expanded="false">
+          <h3>2026–2027 <span class="tr">Güz</span><span class="en">Fall</span></h3>
+          <span class="semester-tag future tr">Gelecek dönem</span><span class="semester-tag future en">Upcoming</span>
+          <span class="semester-spacer"></span>
+          <svg class="semester-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="semester-body">
+          <div class="course-list">
+            <p class="course-desc tr" style="padding:1.1rem .2rem;">Bu dönemin dersleri ve ders dosyaları dönem başında açıklanacaktır.</p>
+            <p class="course-desc en" style="padding:1.1rem .2rem;">The courses and materials for this semester will be announced at the start of the term.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ 2025–2026 BAHAR (GEÇMİŞ) ═══ -->
+      <div class="semester">
+        <div class="semester-head" role="button" tabindex="0" aria-expanded="false">
           <h3>2025–2026 <span class="tr">Bahar</span><span class="en">Spring</span></h3>
-          <span class="semester-tag tr">Aktif</span><span class="semester-tag en">Active</span>
+          <span class="semester-tag past tr">Geçmiş</span><span class="semester-tag past en">Past</span>
           <span class="semester-spacer"></span>
           <svg class="semester-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </div>
