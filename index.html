@@ -207,6 +207,25 @@
   /* ─── PUBLICATIONS ─── */
   /* ─── PUBLICATIONS LAYOUT ─── */
   .pub-layout { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
+
+  /* ─── PUBLICATION GROUP ACCORDIONS ─── */
+  .pub-group { border-bottom: 1px solid var(--rule); }
+  .pub-group:first-child { border-top: 1px solid var(--rule); }
+  .pub-group-head {
+    display: flex; align-items: center; gap: .8rem; cursor: pointer;
+    padding: 1.4rem 0; user-select: none; list-style: none;
+  }
+  .pub-group-head::-webkit-details-marker { display: none; }
+  .pub-group-head h2 { margin: 0; font-size: 1.5rem; }
+  .pub-group-count {
+    font-family: var(--mono); font-size: .7rem; color: var(--text-light);
+    background: var(--bg-warm); padding: .15rem .5rem; border-radius: 999px;
+  }
+  .pub-group-spacer { flex: 1; }
+  .pub-group-chev { color: var(--text-mid); transition: transform .3s; flex-shrink: 0; }
+  .pub-group[open] .pub-group-chev { transform: rotate(180deg); }
+  .pub-group .pub-list { padding-bottom: 1.6rem; }
+  .pub-group-head:hover h2 { color: var(--accent); }
   .pub-main { min-width: 0; }
   .pub-aside { position: sticky; top: 90px; }
   @media (max-width: 860px) {
@@ -591,8 +610,13 @@
     <div class="eyebrow"><span class="tr">Yayınlar</span><span class="en">Publications</span></div>
     <div class="pub-layout">
       <div class="pub-main">
-    <h2 class="tr">Makaleler</h2>
-    <h2 class="en">Journal Articles</h2>
+    <details class="pub-group" open>
+      <summary class="pub-group-head">
+        <h2 class="tr">Makaleler</h2>
+        <h2 class="en">Journal Articles</h2>
+        <span class="pub-group-spacer"></span>
+        <svg class="pub-group-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
     <div class="pub-list">
 
       <article class="pub">
@@ -634,7 +658,7 @@
       <article class="pub">
         <div class="pub-year">2025</div>
         <div>
-          <div class="pub-title">İlişkilerin yıkıcı yüzü toksiklik: Toksik İlişki Davranışları Ölçeği'nin Türkçeye uyarlama çalışması</div>
+          <div class="pub-title"><span class="tr">İlişkilerin yıkıcı yüzü toksiklik: Toksik İlişki Davranışları Ölçeği'nin Türkçeye uyarlama çalışması</span><span class="en">The destructive face of relationships, toxicity: A Turkish adaptation study of the Toxic Relationship Behaviors Scale</span></div>
           <div class="pub-meta"><strong>Kurt, A. A.</strong>, &amp; Gündüz, B. — <em>Pamukkale Üniversitesi Eğitim Fakültesi Dergisi, (65), 321–333</em></div>
         </div>
         <a class="pub-link" href="https://doi.org/10.9779/pauefd.1566355" target="_blank" rel="noopener">DOI ↗</a>
@@ -706,7 +730,7 @@
       <article class="pub">
         <div class="pub-year">2022</div>
         <div>
-          <div class="pub-title">Üniversite öğrencilerinin mutlulukları ile yaşam doyumları arasındaki ilişkide erken dönem uyumsuz şemaların aracı rolü</div>
+          <div class="pub-title"><span class="tr">Üniversite öğrencilerinin mutlulukları ile yaşam doyumları arasındaki ilişkide erken dönem uyumsuz şemaların aracı rolü</span><span class="en">The mediating role of early maladaptive schemas in the relationship between happiness and life satisfaction in university students</span></div>
           <div class="pub-meta">Bakır Aygar, B., &amp; <strong>Kurt, A. A.</strong> — <em>Uluslararası İnovatif Eğitim Araştırmacısı, 2(1), 1–26</em></div>
         </div>
         <a class="pub-link" href="https://iedres.com/?mod=tammetin&makaleadi=&makaleurl=71edd886-ed7b-4485-98bb-1d933d6b0fb2.pdf&key=62369" target="_blank" rel="noopener">DOI ↗</a>
@@ -715,7 +739,7 @@
       <article class="pub">
         <div class="pub-year">2020</div>
         <div>
-          <div class="pub-title">Genç yetişkinlerde akılcı olmayan romantik ilişki inançları, bilişsel esneklik ve benliğin ayrımlaşması ilişkisinin incelenmesi</div>
+          <div class="pub-title"><span class="tr">Genç yetişkinlerde akılcı olmayan romantik ilişki inançları, bilişsel esneklik ve benliğin ayrımlaşması ilişkisinin incelenmesi</span><span class="en">An examination of the relationship between irrational romantic relationship beliefs, cognitive flexibility, and self-differentiation in young adults</span></div>
           <div class="pub-meta"><strong>Kurt, A. A.</strong>, &amp; Gündüz, B. — <em>Çukurova Üniversitesi Eğitim Fakültesi Dergisi, 49(1), 28–44</em></div>
         </div>
         <a class="pub-link" href="https://dergipark.org.tr/tr/pub/cuefd/article/658628" target="_blank" rel="noopener">DOI ↗</a>
@@ -724,22 +748,28 @@
       <article class="pub">
         <div class="pub-year">2019</div>
         <div>
-          <div class="pub-title">Üniversite öğrencilerinde evlilik öncesi romantik ilişkilerin değerlendirilmesinde erken dönem uyum bozucu şemaların yordayıcı rolü</div>
+          <div class="pub-title"><span class="tr">Üniversite öğrencilerinde evlilik öncesi romantik ilişkilerin değerlendirilmesinde erken dönem uyum bozucu şemaların yordayıcı rolü</span><span class="en">The predictive role of early maladaptive schemas in the evaluation of premarital romantic relationships in university students</span></div>
           <div class="pub-meta">Körük, S., &amp; <strong>Kurt, A. A.</strong> — <em>Yaşam Becerileri Psikoloji Dergisi, 3(5)</em></div>
         </div>
         <a class="pub-link" href="https://dergipark.org.tr/tr/pub/ybpd/article/556424" target="_blank" rel="noopener">DOI ↗</a>
       </article>
 
     </div>
+    </details>
 
-    <div style="margin-top:3.5rem;">
-      <div class="eyebrow"><span class="tr">Kitap &amp; Kitap Bölümleri</span><span class="en">Books &amp; Book Chapters</span></div>
+    <details class="pub-group">
+      <summary class="pub-group-head">
+        <h2 class="tr">Kitap &amp; Kitap Bölümleri</h2>
+        <h2 class="en">Books &amp; Book Chapters</h2>
+        <span class="pub-group-spacer"></span>
+        <svg class="pub-group-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
       <div class="pub-list">
 
         <article class="pub">
           <div class="pub-year">2022</div>
           <div>
-            <div class="pub-title">Travma Sonrası Grup Temelli Müdahale Programı (TS-GTM): Grup Lideri Uygulama El Kitabı</div>
+            <div class="pub-title"><span class="tr">Travma Sonrası Grup Temelli Müdahale Programı (TS-GTM): Grup Lideri Uygulama El Kitabı</span><span class="en">Post-Traumatic Group-Based Intervention Program (TS-GTM): Group Leader Practitioner Handbook</span></div>
             <div class="pub-meta">Gizir, C. A., Usluoğlu, F., Şahin Yoluk, İ., &amp; <strong>Kurt, A. A.</strong> — <em>Milli Eğitim Bakanlığı</em> (Ed. M. R. Barın), 212 s.</div>
           </div>
           <span class="pub-tag tr">Kitap</span><span class="pub-tag en">Book</span>
@@ -748,7 +778,7 @@
         <article class="pub">
           <div class="pub-year">2022</div>
           <div>
-            <div class="pub-title">Psikodinamik aile danışmanlığı yaklaşımları</div>
+            <div class="pub-title"><span class="tr">Psikodinamik aile danışmanlığı yaklaşımları</span><span class="en">Psychodynamic approaches to family counseling</span></div>
             <div class="pub-meta">Akbay, S. E., &amp; <strong>Kurt, A. A.</strong> — <em>Kuram ve Uygulamadan Özel Temalara Aile Danışmanlığı</em> içinde (Ed. B. Çapri &amp; B. Gündüz), Nobel Yayınevi</div>
           </div>
           <span class="pub-tag tr">Bölüm</span><span class="pub-tag en">Chapter</span>
@@ -757,7 +787,7 @@
         <article class="pub">
           <div class="pub-year">2022</div>
           <div>
-            <div class="pub-title">Yapısal ve Mental Araştırma Enstitüsü aile danışmanlığı yaklaşımları</div>
+            <div class="pub-title"><span class="tr">Yapısal ve Mental Araştırma Enstitüsü aile danışmanlığı yaklaşımları</span><span class="en">Structural and Mental Research Institute approaches to family counseling</span></div>
             <div class="pub-meta">Çapri, B., &amp; <strong>Kurt, A. A.</strong> — <em>Kuram ve Uygulamadan Özel Temalara Aile Danışmanlığı</em> içinde (Ed. B. Çapri &amp; B. Gündüz), Nobel Yayınevi</div>
           </div>
           <span class="pub-tag tr">Bölüm</span><span class="pub-tag en">Chapter</span>
@@ -766,17 +796,22 @@
         <article class="pub">
           <div class="pub-year">2020</div>
           <div>
-            <div class="pub-title">Psikanalitik yaklaşım</div>
+            <div class="pub-title"><span class="tr">Psikanalitik yaklaşım</span><span class="en">The psychoanalytic approach</span></div>
             <div class="pub-meta">Gündüz, B., &amp; <strong>Kurt, A. A.</strong> — <em>Geçmişten Günümüze Kişilik Kuramları</em> içinde (Ed. B. Çapri), Nobel Akademik Yayıncılık</div>
           </div>
           <span class="pub-tag tr">Bölüm</span><span class="pub-tag en">Chapter</span>
         </article>
 
       </div>
-    </div>
+    </details>
 
-    <div style="margin-top:3.5rem;">
-      <div class="eyebrow"><span class="tr">Bildiriler</span><span class="en">Conference Proceedings</span></div>
+    <details class="pub-group">
+      <summary class="pub-group-head">
+        <h2 class="tr">Bildiriler</h2>
+        <h2 class="en">Conference Proceedings</h2>
+        <span class="pub-group-spacer"></span>
+        <svg class="pub-group-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
       <div class="pub-list">
 
         <article class="pub">
@@ -844,7 +879,7 @@
         </article>
 
       </div>
-    </div>
+    </details>
       </div><!-- /pub-main -->
 
       <aside class="pub-aside">
