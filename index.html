@@ -189,6 +189,36 @@
   .about-text p + p { margin-top: 1rem; }
   .about-text { color: var(--text-mid); }
   .about-text strong { color: var(--text); font-weight: 600; }
+  /* ─── BLOG ARTICLE ─── */
+  .article { max-width: 44rem; }
+  .article-meta {
+    font-family: var(--mono); font-size: .72rem; color: var(--text-light);
+    letter-spacing: .04em; margin-bottom: 1.6rem;
+  }
+  .article-lead {
+    font-size: 1.15rem; line-height: 1.7; color: var(--text-mid);
+    font-style: italic; margin-bottom: 2rem; padding-left: 1.1rem;
+    border-left: 3px solid var(--accent);
+  }
+  .article h3 {
+    font-family: var(--serif); font-size: 1.35rem; margin: 2.4rem 0 .9rem;
+    line-height: 1.3;
+  }
+  .article p { margin-bottom: 1.15rem; line-height: 1.8; }
+  .article p strong { color: var(--text); }
+  .article-refs {
+    margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--rule);
+  }
+  .article-refs h4 {
+    font-family: var(--mono); font-size: .74rem; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--text-mid); margin-bottom: 1rem;
+  }
+  .article-refs ol { padding-left: 1.2rem; }
+  .article-refs li {
+    font-size: .82rem; color: var(--text-mid); line-height: 1.6;
+    margin-bottom: .6rem;
+  }
+
   .focus-card {
     background: var(--bg-warm); border-radius: 14px; padding: 1.6rem;
   }
@@ -1464,15 +1494,76 @@
     <div class="eyebrow"><span class="tr">Yazılar</span><span class="en">Writing</span></div>
     <h2 class="tr">Yazılar &amp; düşünceler</h2>
     <h2 class="en">Writing &amp; reflections</h2>
-    <p class="tr" style="color:var(--text-mid); max-width:42rem; margin-bottom:2rem;">Yakın ilişkiler, sistemik bakış açısı, sosyal medya psikolojisi ve ruh sağlığı üzerine zaman zaman kaleme alacağım yazıları burada paylaşacağım.</p>
-    <p class="en" style="color:var(--text-mid); max-width:42rem; margin-bottom:2rem;">From time to time I will share here my writing on close relationships, the systemic perspective, the psychology of social media, and mental health.</p>
+    <p class="tr" style="color:var(--text-mid); max-width:42rem; margin-bottom:2.5rem;">Yakın ilişkiler, sistemik bakış açısı, sosyal medya psikolojisi ve ruh sağlığı üzerine zaman zaman kaleme alacağım yazıları burada paylaşacağım.</p>
+    <p class="en" style="color:var(--text-mid); max-width:42rem; margin-bottom:2.5rem;">From time to time I will share here my writing on close relationships, the systemic perspective, the psychology of social media, and mental health.</p>
 
-    <div class="focus-card" style="max-width:42rem; text-align:center; padding:2.6rem 1.6rem;">
-      <h3 class="tr" style="margin-bottom:.5rem;">İçerik hazırlanıyor…</h3>
-      <h3 class="en" style="margin-bottom:.5rem;">Content in preparation…</h3>
-      <p class="tr" style="font-size:.88rem; color:var(--text-mid); margin:0;">İlk yazılar çok yakında burada olacak. Takipte kalın.</p>
-      <p class="en" style="font-size:.88rem; color:var(--text-mid); margin:0;">The first pieces will be here very soon. Stay tuned.</p>
-    </div>
+    <!-- ═══ YAZI 1: Sistemik bakış ═══ -->
+    <article class="article tr">
+      <div class="article-meta">Sistemik Bakış · 8 dk okuma</div>
+      <h2 style="font-size:2rem; line-height:1.2; margin-bottom:.8rem;">Sorun kişide değil, ilişkide</h2>
+      <p class="article-lead">Bir kişiyi anlamak istiyorsanız, ona tek başına bakmayı bırakın. Onu içinde bulunduğu ilişkilerle birlikte görün. Çünkü çoğu zaman "sorunlu" sandığımız kişi, aslında sorunlu bir örüntünün en görünür ucundan ibarettir.</p>
+
+      <p>Bir düşünün. Evde sürekli öfkelenen bir çocuk var. Herkes onu işaret ediyor: "Problem bu çocukta." Okula gidiyor, terapiste gidiyor, ilaç konuşuluyor. Ama kimse şunu sormuyor: Bu çocuk kimin öfkesini taşıyor? Anne ve baba konuşamadıkları gerginliği evin havasına yaydığında, o gerginliği en çok kim üstlenir? Çoğu zaman en hassas, en sevgi dolu üye. Yani "sorunlu" çocuk, aslında ailenin taşıyamadığı yükü sırtlanan çocuktur.</p>
+
+      <p>İşte sistemik bakış açısı tam da burada devreye girer. Bu yaklaşım, bir insanı tek başına, çevresinden kopuk bir "birey" olarak görmeyi reddeder. Bunun yerine der ki: <strong>İnsan, içinde bulunduğu ilişkiler ağının bir parçasıdır. Bir davranışı anlamak istiyorsanız, o davranışın hangi ilişki örüntüsü içinde ortaya çıktığına bakın.</strong></p>
+
+      <h3>Aile bir rüzgâr çanı gibidir</h3>
+      <p>Sistemi anlamak için güzel bir metafor var. Bir rüzgâr çanı düşünün; tavana asılı, birbirine iplerle bağlı parçalardan oluşan o hareketli denge oyunu. Bir parçasına dokunduğunuzda ne olur? Sadece o parça oynamaz. Bütün sistem sallanır, hepsi yeni bir dengeye ulaşana kadar hareket eder.</p>
+      <p>Aileler de böyledir. Bir üye değiştiğinde, sistemin tamamı etkilenir. Yıllarca sessiz kalan bir eş konuşmaya başladığında, evdeki denge sarsılır. Depresyondaki bir anne iyileşmeye başladığında, bazen ailenin geri kalanı huzursuzlanır, çünkü eski denge bozulmuştur. Bu yüzden sistemik terapist bir kişinin "belirtisine" değil, o belirtinin sistemde neyi dengede tuttuğuna bakar.</p>
+
+      <h3>Aynı kavgayı neden tekrar tekrar yaşıyoruz?</h3>
+      <p>Çiftlerin en sık sorduğu sorulardan biri budur. "Hep aynı yere geliyoruz." Bir kişi yaklaştıkça diğeri uzaklaşır, uzaklaştıkça beriki daha çok yaklaşmaya çalışır ve bu böyle döner durur. Buna sistemik dilde <strong>kısır döngü</strong> denir. Kimse kötü niyetli değildir; herkes kendi rolünü, sanki bir dans figürüymüş gibi otomatik olarak oynar.</p>
+      <p>Burada kritik bir fikir var. Bu döngüde "kim başlattı" sorusunun anlamı yoktur. Çünkü kadının sitemi erkeğin suskunluğunu, erkeğin suskunluğu kadının sitemini besler. Neden ve sonuç iç içe geçmiştir; ilişki dairesel işler, düz bir çizgi gibi değil. Bir kişiyi suçlamak, çemberin tek bir noktasına parmak basıp "işte burası hatalı" demek kadar anlamsızdır.</p>
+
+      <h3>Peki bu bize ne söylüyor?</h3>
+      <p>Sistemik bakış açısı bizi rahatlatan bir şey söyler: <strong>Belki de o kadar bozuk bir insan değilsiniz. Belki de bozuk olan, içinde sıkışıp kaldığınız örüntüdür.</strong> Sürekli kaygılı hissettiğiniz bir ilişkide, kaygı sizin karakter kusurunuz değil, o ilişkinin ürettiği bir tepki olabilir. Ortam değişince, çoğu zaman siz de değişirsiniz.</p>
+      <p>Ama aynı fikir bize bir sorumluluk da yükler. Eğer sorun ilişkideyse, değişim de ilişkiden başlar. Ve işin güzel yanı şu: Bir sistemi değiştirmek için herkesin değişmesini beklemek zorunda değilsiniz. Rüzgâr çanını hatırlayın; tek bir parça farklı hareket etmeye başladığında, bütün sistem yeni bir dengeye doğru kımıldar. Siz dansınızdaki tek bir adımı değiştirdiğinizde, karşınızdaki de eski figürü sürdüremez hale gelir.</p>
+      <p>Kendinize kızmadan önce bir soru sorun: "Ben mi böyleyim, yoksa bu ilişkinin içinde mi böyle oluyorum?" Bu sorunun cevabı, çoğu zaman hem daha adil hem de daha umut vericidir. Çünkü kişiyi suçlamak yolu kapatır; örüntüyü görmek ise bir kapı aralar.</p>
+
+      <div class="article-refs">
+        <h4>Yararlanılan Kaynaklar</h4>
+        <ol>
+          <li>Bowen, M. (1978). <em>Family therapy in clinical practice</em>. New York: Jason Aronson.</li>
+          <li>Minuchin, S. (1974). <em>Families and family therapy</em>. Cambridge, MA: Harvard University Press.</li>
+          <li>Watzlawick, P., Beavin, J. H., &amp; Jackson, D. D. (1967). <em>Pragmatics of human communication</em>. New York: W. W. Norton.</li>
+          <li>Kerr, M. E., &amp; Bowen, M. (1988). <em>Family evaluation: An approach based on Bowen theory</em>. New York: W. W. Norton.</li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- ═══ ARTICLE 1: Systemic view (EN) ═══ -->
+    <article class="article en">
+      <div class="article-meta">Systemic Perspective · 8 min read</div>
+      <h2 style="font-size:2rem; line-height:1.2; margin-bottom:.8rem;">The problem is not in the person, but in the relationship</h2>
+      <p class="article-lead">If you want to understand a person, stop looking at them in isolation. See them together with the relationships they are embedded in. Because the person we call "the problem" is often just the most visible tip of a problematic pattern.</p>
+
+      <p>Picture this. There is a child at home who is constantly angry. Everyone points to them: "This child is the problem." They go to school, they see a therapist, medication is discussed. But no one asks the real question: Whose anger is this child carrying? When a mother and father spread the tension they cannot voice into the air of the home, who absorbs that tension the most? Usually the most sensitive, most loving member. In other words, the "problem" child is often the one shouldering a burden the family cannot carry.</p>
+
+      <p>This is exactly where the systemic perspective comes in. This approach refuses to see a person as a lone "individual," cut off from their surroundings. Instead it says: <strong>A person is part of the web of relationships they live in. If you want to understand a behavior, look at the relational pattern in which it arises.</strong></p>
+
+      <h3>A family is like a mobile</h3>
+      <p>There is a lovely metaphor for understanding systems. Imagine a mobile, one of those hanging sculptures made of parts connected by strings, held in delicate balance. What happens when you touch one piece? That piece does not move alone. The whole system sways, everything shifts until it settles into a new balance.</p>
+      <p>Families are like this. When one member changes, the entire system is affected. When a spouse who stayed silent for years begins to speak, the balance at home is shaken. When a depressed mother starts to recover, the rest of the family sometimes grows uneasy, because the old equilibrium has been disturbed. This is why a systemic therapist looks not at a person's "symptom," but at what that symptom is holding in balance within the system.</p>
+
+      <h3>Why do we keep having the same fight?</h3>
+      <p>This is one of the most common questions couples ask. "We always end up in the same place." One person moves closer, the other pulls away; the more one withdraws, the harder the other tries to approach, and round it goes. In systemic language this is called a <strong>vicious cycle</strong>. No one is acting in bad faith; each simply plays their role automatically, like steps in a dance.</p>
+      <p>Here is the crucial idea. In this cycle, the question "who started it" is meaningless. The wife's reproach feeds the husband's silence, and his silence feeds her reproach. Cause and effect are intertwined; relationships work in circles, not straight lines. Blaming one person makes as little sense as pointing to a single spot on a circle and declaring "this is where it went wrong."</p>
+
+      <h3>So what does this tell us?</h3>
+      <p>The systemic perspective offers something reassuring: <strong>Maybe you are not such a broken person after all. Maybe what is broken is the pattern you are stuck inside.</strong> In a relationship where you feel constantly anxious, that anxiety may not be a flaw in your character but a response the relationship produces. Change the context, and often you change too.</p>
+      <p>But the same idea also hands us a responsibility. If the problem lies in the relationship, then change begins in the relationship too. And here is the good part: to change a system, you do not have to wait for everyone else to change. Remember the mobile; when a single piece begins to move differently, the whole system shifts toward a new balance. When you change just one step in your dance, the other can no longer keep performing the old figure.</p>
+      <p>Before turning on yourself, ask one question: "Am I like this, or do I become like this inside this relationship?" The answer is usually both fairer and more hopeful. Because blaming the person closes a door; seeing the pattern opens one.</p>
+
+      <div class="article-refs">
+        <h4>References</h4>
+        <ol>
+          <li>Bowen, M. (1978). <em>Family therapy in clinical practice</em>. New York: Jason Aronson.</li>
+          <li>Minuchin, S. (1974). <em>Families and family therapy</em>. Cambridge, MA: Harvard University Press.</li>
+          <li>Watzlawick, P., Beavin, J. H., &amp; Jackson, D. D. (1967). <em>Pragmatics of human communication</em>. New York: W. W. Norton.</li>
+          <li>Kerr, M. E., &amp; Bowen, M. (1988). <em>Family evaluation: An approach based on Bowen theory</em>. New York: W. W. Norton.</li>
+        </ol>
+      </div>
+    </article>
   </div>
 </section>
 
