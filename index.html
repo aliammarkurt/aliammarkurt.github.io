@@ -191,6 +191,39 @@
   .about-text strong { color: var(--text); font-weight: 600; }
   /* ─── BLOG ARTICLE ─── */
   .article { max-width: 44rem; }
+
+  /* Blog list (cards) */
+  .post-list { display: flex; flex-direction: column; gap: 1.4rem; max-width: 44rem; }
+  .post-card {
+    display: block; text-align: left; width: 100%; cursor: pointer;
+    background: var(--card); border: 1px solid var(--rule); border-radius: 14px;
+    padding: 1.6rem 1.8rem; transition: all .2s; font-family: inherit; color: inherit;
+  }
+  .post-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .post-card-date {
+    font-family: var(--mono); font-size: .7rem; color: var(--text-light);
+    letter-spacing: .04em; margin-bottom: .5rem;
+  }
+  .post-card-title { font-family: var(--serif); font-size: 1.5rem; line-height: 1.25; margin-bottom: .6rem; }
+  .post-card-excerpt { font-size: .92rem; color: var(--text-mid); line-height: 1.6; margin-bottom: .8rem; }
+  .post-card-more { font-size: .8rem; color: var(--accent); font-weight: 500; }
+
+  /* Single post view */
+  .post-back {
+    display: inline-flex; align-items: center; gap: .4rem; cursor: pointer;
+    background: none; border: none; font-family: var(--mono); font-size: .74rem;
+    color: var(--text-mid); margin-bottom: 1.8rem; padding: 0; letter-spacing: .03em;
+  }
+  .post-back:hover { color: var(--accent); }
+  .post-share {
+    display: inline-flex; align-items: center; gap: .45rem; cursor: pointer;
+    background: var(--bg-warm); border: 1px solid var(--rule); border-radius: 999px;
+    font-family: var(--sans); font-size: .78rem; color: var(--text-mid);
+    padding: .45rem .9rem; margin-top: .4rem; transition: all .2s;
+  }
+  .post-share:hover { border-color: var(--accent); color: var(--accent); }
+  .post-share svg { width: 14px; height: 14px; }
+
   .article-meta {
     font-family: var(--mono); font-size: .72rem; color: var(--text-light);
     letter-spacing: .04em; margin-bottom: 1.6rem;
@@ -1494,12 +1527,31 @@
     <div class="eyebrow"><span class="tr">Yazılar</span><span class="en">Writing</span></div>
     <h2 class="tr">Yazılar &amp; düşünceler</h2>
     <h2 class="en">Writing &amp; reflections</h2>
-    <p class="tr" style="color:var(--text-mid); max-width:42rem; margin-bottom:2.5rem;">Yakın ilişkiler, sistemik bakış açısı, sosyal medya psikolojisi ve ruh sağlığı üzerine zaman zaman kaleme alacağım yazıları burada paylaşacağım.</p>
-    <p class="en" style="color:var(--text-mid); max-width:42rem; margin-bottom:2.5rem;">From time to time I will share here my writing on close relationships, the systemic perspective, the psychology of social media, and mental health.</p>
+    <p class="tr" id="yazilarIntro" style="color:var(--text-mid); max-width:42rem; margin-bottom:2.5rem;">Yakın ilişkiler, sistemik bakış açısı, sosyal medya psikolojisi ve ruh sağlığı üzerine zaman zaman kaleme alacağım yazıları burada paylaşacağım.</p>
+    <p class="en" id="yazilarIntroEn" style="color:var(--text-mid); max-width:42rem; margin-bottom:2.5rem;">From time to time I will share here my writing on close relationships, the systemic perspective, the psychology of social media, and mental health.</p>
+
+    <!-- ═══ YAZI LİSTESİ ═══ -->
+    <div id="postList" class="post-list">
+      <button class="post-card" onclick="openPost('sistemik-bakis')">
+        <div class="post-card-date">1 Temmuz 2026</div>
+        <div class="post-card-title tr">Sorun kişide değil, ilişkide</div>
+        <div class="post-card-title en">The problem is not in the person, but in the relationship</div>
+        <div class="post-card-excerpt tr">Sürekli "öfkeli" olan çocuk, aslında kimin öfkesini taşıyor? Sistemik bakış açısı, bir insanı tek başına değil, içinde bulunduğu ilişkilerle birlikte görmeyi öneriyor. Peki bu bakış bize ne söylüyor?</div>
+        <div class="post-card-excerpt en">The "angry" child at home, whose anger are they really carrying? The systemic perspective invites us to see a person not in isolation, but together with their relationships. So what does this view tell us?</div>
+        <span class="post-card-more tr">Yazıyı oku →</span>
+        <span class="post-card-more en">Read the article →</span>
+      </button>
+    </div>
+
+    <!-- ═══ TEK YAZI GÖRÜNÜMÜ ═══ -->
+    <div id="postView" style="display:none;">
+      <button class="post-back" onclick="closePost()">
+        <span class="tr">← Yazılara dön</span><span class="en">← Back to writing</span>
+      </button>
 
     <!-- ═══ YAZI 1: Sistemik bakış ═══ -->
-    <article class="article tr">
-      <div class="article-meta">Sistemik Bakış · 8 dk okuma</div>
+    <article class="article tr" data-post="sistemik-bakis">
+      <div class="article-meta">Sistemik Bakış · 1 Temmuz 2026 · 8 dk okuma</div>
       <h2 style="font-size:2rem; line-height:1.2; margin-bottom:.8rem;">Sorun kişide değil, ilişkide</h2>
       <p class="article-lead">Bir kişiyi anlamak istiyorsanız, ona tek başına bakmayı bırakın. Onu içinde bulunduğu ilişkilerle birlikte görün. Çünkü çoğu zaman "sorunlu" sandığımız kişi, aslında sorunlu bir örüntünün en görünür ucundan ibarettir.</p>
 
@@ -1529,11 +1581,15 @@
           <li>Kerr, M. E., &amp; Bowen, M. (1988). <em>Family evaluation: An approach based on Bowen theory</em>. New York: W. W. Norton.</li>
         </ol>
       </div>
+      <button class="post-share" onclick="sharePost('sistemik-bakis')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        <span class="tr">Bağlantıyı kopyala</span><span class="en">Copy link</span>
+      </button>
     </article>
 
     <!-- ═══ ARTICLE 1: Systemic view (EN) ═══ -->
-    <article class="article en">
-      <div class="article-meta">Systemic Perspective · 8 min read</div>
+    <article class="article en" data-post="sistemik-bakis">
+      <div class="article-meta">Systemic Perspective · 1 July 2026 · 8 min read</div>
       <h2 style="font-size:2rem; line-height:1.2; margin-bottom:.8rem;">The problem is not in the person, but in the relationship</h2>
       <p class="article-lead">If you want to understand a person, stop looking at them in isolation. See them together with the relationships they are embedded in. Because the person we call "the problem" is often just the most visible tip of a problematic pattern.</p>
 
@@ -1563,7 +1619,13 @@
           <li>Kerr, M. E., &amp; Bowen, M. (1988). <em>Family evaluation: An approach based on Bowen theory</em>. New York: W. W. Norton.</li>
         </ol>
       </div>
+      <button class="post-share" onclick="sharePost('sistemik-bakis')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        <span class="tr">Bağlantıyı kopyala</span><span class="en">Copy link</span>
+      </button>
     </article>
+
+    </div><!-- /postView -->
   </div>
 </section>
 
@@ -1712,18 +1774,74 @@ document.querySelectorAll('.gate input').forEach(inp => {
 /* ─── PAGE ROUTER ─── */
 const PAGES = ['top', 'hakkimda', 'yayinlar', 'olcekler', 'dersler', 'ogrenciler', 'yazilar'];
 function route() {
-  const id = (location.hash || '#top').slice(1);
+  const raw = (location.hash || '#top').slice(1);
+
+  // Yazı linki mi? (#yazi/slug)
+  if (raw.startsWith('yazi/')) {
+    const slug = raw.slice(5);
+    PAGES.forEach(p => {
+      const el = document.getElementById(p);
+      if (el) el.classList.toggle('active', p === 'yazilar');
+    });
+    renderPostView(slug);
+    scrollTo({ top: 0, behavior: 'instant' });
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('menuBtn').setAttribute('aria-expanded', 'false');
+    return;
+  }
+
+  const id = raw;
   const target = PAGES.includes(id) ? id : 'top';
   PAGES.forEach(p => {
     const el = document.getElementById(p);
     if (el) el.classList.toggle('active', p === target);
   });
+  // Yazılar sekmesine normal girişte liste görünür, tek yazı gizli
+  if (target === 'yazilar') showPostList();
   scrollTo({ top: 0, behavior: 'instant' });
   document.getElementById('navLinks').classList.remove('open');
   document.getElementById('menuBtn').setAttribute('aria-expanded', 'false');
 }
 addEventListener('hashchange', route);
 route();
+
+/* ─── BLOG (yazılar) ─── */
+function showPostList() {
+  document.getElementById('postList').style.display = 'flex';
+  document.getElementById('postView').style.display = 'none';
+  const intro = document.getElementById('yazilarIntro');
+  const introEn = document.getElementById('yazilarIntroEn');
+  if (intro) intro.style.display = '';
+  if (introEn) introEn.style.display = '';
+}
+function renderPostView(slug) {
+  document.getElementById('postList').style.display = 'none';
+  document.getElementById('postView').style.display = 'block';
+  const intro = document.getElementById('yazilarIntro');
+  const introEn = document.getElementById('yazilarIntroEn');
+  if (intro) intro.style.display = 'none';
+  if (introEn) introEn.style.display = 'none';
+  // İlgili yazıyı göster, diğerlerini gizle
+  document.querySelectorAll('#postView .article').forEach(a => {
+    a.style.display = (a.dataset.post === slug) ? '' : 'none';
+  });
+}
+function openPost(slug) {
+  location.hash = 'yazi/' + slug;
+}
+function closePost() {
+  location.hash = 'yazilar';
+}
+function sharePost(slug) {
+  const url = 'https://aliammarkurt.com/#yazi/' + slug;
+  const tr = document.body.dataset.lang !== 'en';
+  const done = () => alert(tr ? 'Bağlantı kopyalandı:\n' + url : 'Link copied:\n' + url);
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(done).catch(() => prompt(tr ? 'Bağlantıyı kopyalayın:' : 'Copy the link:', url));
+  } else {
+    prompt(tr ? 'Bağlantıyı kopyalayın:' : 'Copy the link:', url);
+  }
+}
 
 /* ─── MOBILE MENU ─── */
 const menuBtn = document.getElementById('menuBtn');
