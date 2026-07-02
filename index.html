@@ -504,6 +504,58 @@
 
   /* ─── STUDENTS ─── */
   .stu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.3rem; align-items: start; }
+
+  /* ─── DANIŞMA BECERİLERİ ALIŞTIRMASI ─── */
+  .practice {
+    margin-top: 3.5rem; border: 1px solid var(--rule); border-radius: 16px;
+    padding: 2rem 1.9rem; background: var(--card);
+  }
+  .practice-badge {
+    display: inline-block; font-family: var(--mono); font-size: .64rem;
+    text-transform: uppercase; letter-spacing: .1em; color: var(--accent);
+    background: var(--accent-soft); padding: .25rem .7rem; border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+  .practice h3 { font-family: var(--serif); font-size: 1.5rem; margin-bottom: .6rem; }
+  .practice-intro { font-size: .92rem; color: var(--text-mid); margin-bottom: 1.6rem; max-width: 44rem; }
+  .practice-scenario {
+    background: var(--bg-warm); border-left: 3px solid var(--accent);
+    border-radius: 10px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem;
+  }
+  .practice-scenario-label {
+    font-family: var(--mono); font-size: .68rem; text-transform: uppercase;
+    letter-spacing: .06em; color: var(--text-light); margin-bottom: .5rem;
+  }
+  .practice-scenario-text { font-size: 1.05rem; line-height: 1.6; font-style: italic; }
+  .practice-controls { display: flex; gap: .7rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+  .practice-btn {
+    font-family: var(--sans); font-size: .82rem; cursor: pointer;
+    border: 1px solid var(--rule); background: transparent; color: var(--text-mid);
+    padding: .5rem 1rem; border-radius: 999px; transition: all .2s;
+  }
+  .practice-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .practice textarea {
+    width: 100%; min-height: 120px; resize: vertical; font-family: var(--sans);
+    font-size: .95rem; line-height: 1.6; padding: 1rem; border: 1px solid var(--rule);
+    border-radius: 10px; background: var(--bg); color: var(--text); margin-bottom: 1rem;
+  }
+  .practice textarea:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+  .practice-submit {
+    font-family: var(--sans); font-size: .9rem; font-weight: 500; cursor: pointer;
+    border: none; background: var(--accent); color: #fff;
+    padding: .7rem 1.6rem; border-radius: 999px; transition: all .2s;
+  }
+  .practice-submit:hover { background: var(--accent-hover); }
+  .practice-submit:disabled { opacity: .55; cursor: not-allowed; }
+  .practice-feedback {
+    margin-top: 1.5rem; padding: 1.4rem 1.5rem; border-radius: 12px;
+    background: var(--bg-warm); border: 1px solid var(--rule); display: none;
+    font-size: .92rem; line-height: 1.7; white-space: pre-wrap;
+  }
+  .practice-feedback.show { display: block; }
+  .practice-feedback strong { color: var(--accent); }
+  .practice-note { font-size: .76rem; color: var(--text-light); margin-top: 1.2rem; line-height: 1.5; }
+  .practice-loading { display: inline-block; }
   .stu-card p + p { margin-top: .7rem; }
   .stu-card { background: var(--bg-warm); border-radius: 14px; padding: 1.5rem; }
   .stu-card h3 { font-family: var(--serif); font-size: 1.05rem; margin-bottom: .6rem; }
@@ -1518,10 +1570,41 @@
       </div>
 
     </div>
+
+    <!-- ═══ DANIŞMA BECERİLERİ ALIŞTIRMASI ═══ -->
+    <div class="practice">
+      <span class="practice-badge tr">İnteraktif Alıştırma</span><span class="practice-badge en">Interactive Exercise</span>
+      <h3 class="tr">Danışma Becerileri Pratiği</h3>
+      <h3 class="en">Counseling Skills Practice</h3>
+      <p class="practice-intro tr">Aşağıda hayali bir danışan ifadesi göreceksiniz. Bu ifadeye, temel psikolojik danışma becerilerini kullanarak nasıl bir tepki verirdiniz? Cevabınızı yazın; yapay zekâ destekli bir değerlendirme, tepkinizin güçlü yönlerini, geliştirilebilecek noktaları ve daha uygun bir örnek tepkiyi paylaşsın. Yeni bir senaryo için "Başka senaryo" düğmesini kullanabilirsiniz.</p>
+      <p class="practice-intro en">Below you will see a hypothetical client statement. How would you respond using basic counseling skills? Write your response; an AI-assisted evaluation will share the strengths of your response, points to improve, and a more suitable example. Use the "Another scenario" button for a new one.</p>
+
+      <div class="practice-scenario">
+        <div class="practice-scenario-label tr">Danışan</div>
+        <div class="practice-scenario-label en">Client</div>
+        <div class="practice-scenario-text" id="scenarioText"></div>
+      </div>
+
+      <div class="practice-controls">
+        <button class="practice-btn" id="nextScenarioBtn" onclick="nextScenario()">
+          <span class="tr">↻ Başka senaryo</span><span class="en">↻ Another scenario</span>
+        </button>
+      </div>
+
+      <textarea id="practiceAnswer" placeholder="Tepkinizi buraya yazın..."></textarea>
+
+      <button class="practice-submit" id="practiceSubmit" onclick="evaluateAnswer()">
+        <span class="tr">Değerlendir</span><span class="en">Evaluate</span>
+      </button>
+
+      <div class="practice-feedback" id="practiceFeedback"></div>
+
+      <p class="practice-note tr">Not: Bu alıştırma bir öğrenme aracıdır ve gerçek süpervizyonun ya da profesyonel değerlendirmenin yerine geçmez. Yapay zekâ geri bildirimi zaman zaman eksik veya hatalı olabilir; kendi kritik değerlendirmenizle birlikte kullanın.</p>
+      <p class="practice-note en">Note: This exercise is a learning tool and does not replace real supervision or professional assessment. AI feedback may occasionally be incomplete or inaccurate; use it alongside your own critical judgment.</p>
+    </div>
+
   </div>
 </section>
-
-<!-- ─── WRITING / BLOG ─── -->
 <section class="page" id="yazilar">
   <div class="wrap">
     <div class="eyebrow"><span class="tr">Yazılar</span><span class="en">Writing</span></div>
@@ -1672,6 +1755,11 @@ function setLang(lang) {
   document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
   try { localStorage.setItem('lang', lang); } catch (e) {}
+  // Senaryo metnini seçili dile göre güncelle
+  const st = document.getElementById('scenarioText');
+  if (st && typeof currentScenario !== 'undefined' && currentScenario >= 0 && typeof SCENARIOS !== 'undefined') {
+    st.textContent = (lang === 'en') ? SCENARIOS[currentScenario].en : SCENARIOS[currentScenario].tr;
+  }
 }
 try {
   const saved = localStorage.getItem('lang');
@@ -1842,6 +1930,83 @@ function sharePost(slug) {
     prompt(tr ? 'Bağlantıyı kopyalayın:' : 'Copy the link:', url);
   }
 }
+
+/* ─── DANIŞMA BECERİLERİ ALIŞTIRMASI ─── */
+const WORKER_URL = "https://danisma-degerlendirme.aliammarkurt.workers.dev";
+const SCENARIOS = [
+  { tr: "Aslında ne hissettiğimi bilmiyorum. Sadece son birkaç haftadır sabahları yataktan çıkmak bile bana çok zor geliyor. Herkes iyiymişim gibi davranmamı bekliyor.",
+    en: "I don't really know what I feel. It's just that for the past few weeks even getting out of bed in the morning feels so hard. Everyone expects me to act like I'm fine." },
+  { tr: "Annemle her konuştuğumuzda bir şekilde kavgaya dönüşüyor. Ona bir şey anlatmaya çalışıyorum ama o hemen savunmaya geçiyor, sonra ben de bağırıyorum.",
+    en: "Every time I talk with my mother it somehow turns into a fight. I try to tell her something but she immediately gets defensive, and then I start shouting too." },
+  { tr: "Bu aralar işler pek yolunda değil. Bilmiyorum işte, her şey biraz karışık.",
+    en: "Things aren't going so well lately. I don't know, everything is kind of a mess." },
+  { tr: "Babamı geçen ay kaybettim. Herkes 'başın sağolsun' deyip geçiyor ama kimse gerçekten nasıl olduğumu sormuyor. Sanki üç günde geçmesi gerekiyormuş gibi.",
+    en: "I lost my father last month. Everyone just says 'my condolences' and moves on, but no one really asks how I'm doing. As if it's supposed to pass in three days." },
+  { tr: "Hayatım tam bir felaket. Hiçbir şey yolunda gitmiyor, her şey berbat durumda.",
+    en: "My life is a total disaster. Nothing is going right, everything is in a terrible state." },
+  { tr: "Onu hiç umursamıyorum, gitmesi umurumda bile değil. Zaten benim için hiçbir anlamı yoktu. (Bunu söylerken gözleri doluyor.)",
+    en: "I don't care about him at all, I don't even care that he left. He never meant anything to me anyway. (Their eyes well up as they say this.)" },
+  { tr: "Çocuğuma bağırdım, hatta bir keresinde kolunu sıktım. Bunu söylemekten utanıyorum, muhtemelen berbat bir anne olduğumu düşünüyorsunuz.",
+    en: "I yelled at my child, and once I even squeezed their arm. I'm ashamed to say it, you probably think I'm a terrible mother." },
+  { tr: "(Danışan uzun süre sessiz kaldıktan sonra) Bunu daha önce kimseye söylemedim.",
+    en: "(After a long silence) I've never told anyone this before." },
+  { tr: "İşimden nefret ediyorum, sabahları gitmek istemiyorum. Ama maaşa ihtiyacım var. Eşim başka bir şehre taşınmak istiyor, ben istemiyorum. Bir de sağlık sorunlarım başladı. Kafam çok karışık.",
+    en: "I hate my job, I don't want to go in the mornings. But I need the salary. My spouse wants to move to another city, I don't. And I've started having health problems. My mind is a mess." },
+  { tr: "Geçen hafta o olaydan sonra kendimi çok kötü hissettim. Anlatması zor ama... galiba anlatmam lazım.",
+    en: "After that incident last week I felt awful. It's hard to talk about but... I think I need to." }
+];
+let currentScenario = -1;
+
+function showScenario(i) {
+  currentScenario = i;
+  const tr = document.body.dataset.lang !== 'en';
+  document.getElementById('scenarioText').textContent = tr ? SCENARIOS[i].tr : SCENARIOS[i].en;
+  const fb = document.getElementById('practiceFeedback');
+  fb.classList.remove('show');
+  fb.innerHTML = '';
+  document.getElementById('practiceAnswer').value = '';
+}
+function nextScenario() {
+  let i;
+  do { i = Math.floor(Math.random() * SCENARIOS.length); } while (i === currentScenario && SCENARIOS.length > 1);
+  showScenario(i);
+}
+async function evaluateAnswer() {
+  const tr = document.body.dataset.lang !== 'en';
+  const answer = document.getElementById('practiceAnswer').value.trim();
+  const fb = document.getElementById('practiceFeedback');
+  const btn = document.getElementById('practiceSubmit');
+  if (!answer) {
+    fb.classList.add('show');
+    fb.textContent = tr ? 'Lütfen önce bir tepki yazın.' : 'Please write a response first.';
+    return;
+  }
+  const scenarioText = document.getElementById('scenarioText').textContent;
+  btn.disabled = true;
+  fb.classList.add('show');
+  fb.textContent = tr ? 'Değerlendiriliyor…' : 'Evaluating…';
+  try {
+    const res = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ scenario: scenarioText, answer: answer, lang: tr ? 'tr' : 'en' })
+    });
+    const data = await res.json();
+    if (data.feedback) {
+      // **kalın** işaretlerini <strong> yap
+      const html = data.feedback.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      fb.innerHTML = html;
+    } else {
+      fb.textContent = data.error || (tr ? 'Bir hata oluştu, lütfen tekrar deneyin.' : 'An error occurred, please try again.');
+    }
+  } catch (e) {
+    fb.textContent = tr ? 'Bağlantı hatası. Lütfen tekrar deneyin.' : 'Connection error. Please try again.';
+  } finally {
+    btn.disabled = false;
+  }
+}
+// İlk senaryoyu yükle
+if (document.getElementById('scenarioText')) showScenario(0);
 
 /* ─── MOBILE MENU ─── */
 const menuBtn = document.getElementById('menuBtn');
