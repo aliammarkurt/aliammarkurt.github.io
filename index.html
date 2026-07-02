@@ -556,6 +556,22 @@
   .practice-feedback strong { color: var(--accent); }
   .practice-note { font-size: .76rem; color: var(--text-light); margin-top: 1.2rem; line-height: 1.5; }
   .practice-loading { display: inline-block; }
+
+  /* ─── ALIŞTIRMA UYARI KUTUSU ─── */
+  .practice-warning {
+    background: var(--accent-soft); border: 1px solid var(--accent);
+    border-radius: 14px; padding: 1.4rem 1.6rem; margin: 1.5rem 0 2.5rem;
+    max-width: 46rem;
+  }
+  .practice-warning-title { font-weight: 600; color: var(--accent); margin-bottom: .8rem; font-size: 1rem; }
+  .practice-warning ul { list-style: none; padding: 0; margin: 0; }
+  .practice-warning li {
+    font-size: .88rem; line-height: 1.6; color: var(--text); margin-bottom: .6rem;
+    padding-left: 1.2rem; position: relative;
+  }
+  .practice-warning li:last-child { margin-bottom: 0; }
+  .practice-warning li::before { content: "•"; color: var(--accent); position: absolute; left: .2rem; }
+  body[data-theme="dark"] .practice-warning { background: #2A1F17; }
   .stu-card p + p { margin-top: .7rem; }
   .stu-card { background: var(--bg-warm); border-radius: 14px; padding: 1.5rem; }
   .stu-card h3 { font-family: var(--serif); font-size: 1.05rem; margin-bottom: .6rem; }
@@ -1569,13 +1585,50 @@
         </ul>
       </div>
 
+      <a class="stu-card" href="#alistirma" style="text-decoration:none; color:inherit; display:block;">
+        <span class="practice-badge tr" style="margin-bottom:.8rem;">Yapay Zekâ Destekli</span><span class="practice-badge en" style="margin-bottom:.8rem;">AI-Powered</span>
+        <h3 class="tr">İnteraktif Vaka Alıştırması</h3>
+        <h3 class="en">Interactive Case Exercise</h3>
+        <p class="tr">Hayali danışan senaryolarına temel psikolojik danışma becerileriyle tepki verin, yapay zekâ destekli geri bildirim alın. Becerilerinizi güvenli bir ortamda pratik edin.</p>
+        <p class="en">Respond to hypothetical client scenarios using basic counseling skills and receive AI-assisted feedback. Practice your skills in a safe environment.</p>
+        <span class="post-card-more tr">Alıştırmaya başla →</span>
+        <span class="post-card-more en">Start the exercise →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ İNTERAKTİF VAKA ALIŞTIRMASI (AYRI SAYFA) ═══ -->
+<section class="page" id="alistirma">
+  <div class="wrap">
+    <a href="#ogrenciler" class="post-back" style="display:inline-flex;">
+      <span class="tr">← Öğrenciler sayfasına dön</span><span class="en">← Back to Students</span>
+    </a>
+
+    <div class="eyebrow"><span class="tr">Yapay Zekâ Destekli · Öğrenciler İçin</span><span class="en">AI-Powered · For Students</span></div>
+    <h2 class="tr">İnteraktif Vaka Alıştırması</h2>
+    <h2 class="en">Interactive Case Exercise</h2>
+
+    <div class="practice-warning">
+      <div class="practice-warning-title tr">⚠️ Yapay Zekâ Destekli Araç &amp; Etik Kullanım</div>
+      <div class="practice-warning-title en">⚠️ AI-Powered Tool &amp; Ethical Use</div>
+      <ul class="tr">
+        <li>Bu alıştırma <strong>yapay zekâ destekli</strong> bir öğrenme aracıdır; verdiği geri bildirim otomatik olarak üretilir.</li>
+        <li>Yalnızca bir <strong>pratik/öğrenme aracıdır</strong>; gerçek süpervizyonun, eğitimin veya profesyonel değerlendirmenin yerine <strong>geçmez</strong>.</li>
+        <li>Yapay zekâ geri bildirimi <strong>hatalı veya eksik olabilir</strong>. Her zaman kendi eleştirel değerlendirmenizle birlikte kullanın.</li>
+        <li>Buradaki tüm senaryolar <strong>hayalidir</strong>. Lütfen <strong>gerçek danışanlara ait hiçbir bilgi girmeyin</strong> — gizlilik ve etik açısından bu çok önemlidir.</li>
+      </ul>
+      <ul class="en">
+        <li>This exercise is an <strong>AI-powered</strong> learning tool; its feedback is generated automatically.</li>
+        <li>It is only a <strong>practice/learning tool</strong> and does <strong>not replace</strong> real supervision, training, or professional assessment.</li>
+        <li>AI feedback <strong>may be inaccurate or incomplete</strong>. Always use it alongside your own critical judgment.</li>
+        <li>All scenarios here are <strong>hypothetical</strong>. Please <strong>do not enter any real client information</strong> — this is critical for privacy and ethics.</li>
+      </ul>
     </div>
 
     <!-- ═══ DANIŞMA BECERİLERİ ALIŞTIRMASI ═══ -->
     <div class="practice">
-      <span class="practice-badge tr">İnteraktif Alıştırma</span><span class="practice-badge en">Interactive Exercise</span>
-      <h3 class="tr">Danışma Becerileri Pratiği</h3>
-      <h3 class="en">Counseling Skills Practice</h3>
       <p class="practice-intro tr">Aşağıda hayali bir danışan ifadesi göreceksiniz. Bu ifadeye, temel psikolojik danışma becerilerini kullanarak nasıl bir tepki verirdiniz? Cevabınızı yazın; yapay zekâ destekli bir değerlendirme, tepkinizin güçlü yönlerini, geliştirilebilecek noktaları ve daha uygun bir örnek tepkiyi paylaşsın. Yeni bir senaryo için "Başka senaryo" düğmesini kullanabilirsiniz.</p>
       <p class="practice-intro en">Below you will see a hypothetical client statement. How would you respond using basic counseling skills? Write your response; an AI-assisted evaluation will share the strengths of your response, points to improve, and a more suitable example. Use the "Another scenario" button for a new one.</p>
 
@@ -1598,9 +1651,6 @@
       </button>
 
       <div class="practice-feedback" id="practiceFeedback"></div>
-
-      <p class="practice-note tr">Not: Bu alıştırma bir öğrenme aracıdır ve gerçek süpervizyonun ya da profesyonel değerlendirmenin yerine geçmez. Yapay zekâ geri bildirimi zaman zaman eksik veya hatalı olabilir; kendi kritik değerlendirmenizle birlikte kullanın.</p>
-      <p class="practice-note en">Note: This exercise is a learning tool and does not replace real supervision or professional assessment. AI feedback may occasionally be incomplete or inaccurate; use it alongside your own critical judgment.</p>
     </div>
 
   </div>
@@ -1860,7 +1910,7 @@ document.querySelectorAll('.gate input').forEach(inp => {
 });
 
 /* ─── PAGE ROUTER ─── */
-const PAGES = ['top', 'hakkimda', 'yayinlar', 'olcekler', 'dersler', 'ogrenciler', 'yazilar'];
+const PAGES = ['top', 'hakkimda', 'yayinlar', 'olcekler', 'dersler', 'ogrenciler', 'yazilar', 'alistirma'];
 function route() {
   const raw = (location.hash || '#top').slice(1);
 
@@ -1886,6 +1936,7 @@ function route() {
   });
   // Yazılar sekmesine normal girişte liste görünür, tek yazı gizli
   if (target === 'yazilar') showPostList();
+  if (target === 'alistirma' && typeof currentScenario !== 'undefined' && currentScenario < 0 && typeof showScenario === 'function') showScenario(0);
   scrollTo({ top: 0, behavior: 'instant' });
   document.getElementById('navLinks').classList.remove('open');
   document.getElementById('menuBtn').setAttribute('aria-expanded', 'false');
