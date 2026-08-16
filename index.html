@@ -189,6 +189,43 @@
   .about-text p + p { margin-top: 1rem; }
   .about-text { color: var(--text-mid); }
   .about-text strong { color: var(--text); font-weight: 600; }
+  /* ─── YAKIN İLİŞKİLER LABORATUVARI (YAKINDA) ─── */
+  #lab .wrap { max-width: 100%; }
+  .lab-hero {
+    min-height: calc(100vh - 200px); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 3rem 1.5rem; position: relative;
+  }
+  .lab-logo { width: 300px; max-width: 78%; height: auto; margin-bottom: 2.4rem; }
+  .lab-badge {
+    display: inline-block; font-family: var(--mono); font-size: .68rem;
+    text-transform: uppercase; letter-spacing: .16em; color: #C4642A;
+    border: 1px solid #C4642A; padding: .35rem .9rem; border-radius: 999px;
+    margin-bottom: 1.6rem;
+  }
+  .lab-title {
+    font-family: var(--serif); font-size: clamp(1.8rem, 5vw, 2.8rem);
+    line-height: 1.15; color: #1E4D45; margin-bottom: 1.2rem; max-width: 20ch;
+  }
+  .lab-text {
+    font-size: 1.05rem; line-height: 1.7; color: #4A5D58;
+    max-width: 34rem; margin-bottom: 2.2rem;
+  }
+  .lab-ig {
+    display: inline-flex; align-items: center; gap: .55rem;
+    background: #1E4D45; color: #fff; text-decoration: none;
+    font-family: var(--sans); font-size: .92rem; font-weight: 500;
+    padding: .8rem 1.6rem; border-radius: 999px; transition: all .2s;
+  }
+  .lab-ig:hover { background: #C4642A; transform: translateY(-2px); }
+  .lab-ig svg { width: 18px; height: 18px; }
+  /* Laboratuvar sayfası açıkken arka planı laboratuvar tonuna çevir */
+  body.lab-active { background: #F4F1EA; }
+  body.lab-active[data-theme="dark"] { background: #12201D; }
+  body[data-theme="dark"] .lab-title { color: #7FC9B8; }
+  body[data-theme="dark"] .lab-text { color: #A9BEB8; }
+  body[data-theme="dark"] .lab-ig { background: #2A6B5E; }
+
   /* ─── BLOG ARTICLE ─── */
   .article { max-width: 44rem; }
 
@@ -669,6 +706,7 @@
       <li><a href="#dersler"><span class="tr">Dersler</span><span class="en">Courses</span></a></li>
       <li><a href="#ogrenciler"><span class="tr">Öğrenciler</span><span class="en">Students</span></a></li>
       <li><a href="#yazilar"><span class="tr">Yazılar</span><span class="en">Writing</span></a></li>
+      <li><a href="#lab"><span class="tr">Yakın İlişkiler Laboratuvarı</span><span class="en">Close Relationships Lab</span></a></li>
     </ul>
     <div style="display:flex; align-items:center; gap:.7rem;">
       <button class="menu-btn" id="menuBtn" aria-label="Menü" aria-expanded="false">☰</button>
@@ -1916,6 +1954,24 @@
   </div>
 </section>
 
+<!-- ═══ YAKIN İLİŞKİLER LABORATUVARI (YAKINDA) ═══ -->
+<section class="page" id="lab">
+  <div class="wrap">
+    <div class="lab-hero">
+      <img class="lab-logo" src="lab-logo.png" alt="Yakın İlişkiler Araştırma Laboratuvarı" />
+      <span class="lab-badge tr">Yakında</span><span class="lab-badge en">Coming Soon</span>
+      <h2 class="lab-title tr">Yakın İlişkiler Araştırma Laboratuvarı kuruldu</h2>
+      <h2 class="lab-title en">The Close Relationships Research Lab has been founded</h2>
+      <p class="lab-text tr">Mersin Üniversitesi bünyesinde kurduğumuz laboratuvarımız çok yakında burada olacak. Araştırma projelerimiz, ekibimiz ve yeni web sitemizle ilgili tüm detayları bu sayfadan paylaşacağız. Gelişmeleri takip etmek için bizi Instagram'dan takip edebilirsiniz.</p>
+      <p class="lab-text en">Our lab, founded at Mersin University, will be here very soon. We will share all details about our research projects, our team, and our new website on this page. Follow us on Instagram to stay up to date.</p>
+      <a class="lab-ig" href="https://www.instagram.com/yakin.iliskiler.lab" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <span>@yakin.iliskiler.lab</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -2077,13 +2133,14 @@ document.querySelectorAll('.gate input').forEach(inp => {
 });
 
 /* ─── PAGE ROUTER ─── */
-const PAGES = ['top', 'hakkimda', 'yayinlar', 'olcekler', 'dersler', 'ogrenciler', 'yazilar', 'alistirma'];
+const PAGES = ['top', 'hakkimda', 'yayinlar', 'olcekler', 'dersler', 'ogrenciler', 'yazilar', 'alistirma', 'lab'];
 function route() {
   const raw = (location.hash || '#top').slice(1);
 
   // Yazı linki mi? (#yazi/slug)
   if (raw.startsWith('yazi/')) {
     const slug = raw.slice(5);
+    document.body.classList.remove('lab-active');
     PAGES.forEach(p => {
       const el = document.getElementById(p);
       if (el) el.classList.toggle('active', p === 'yazilar');
@@ -2101,6 +2158,7 @@ function route() {
     const el = document.getElementById(p);
     if (el) el.classList.toggle('active', p === target);
   });
+  document.body.classList.toggle('lab-active', target === 'lab');
   // Yazılar sekmesine normal girişte liste görünür, tek yazı gizli
   if (target === 'yazilar') showPostList();
   if (target === 'alistirma' && typeof currentScenario !== 'undefined' && currentScenario < 0 && typeof showScenario === 'function') showScenario(0);
